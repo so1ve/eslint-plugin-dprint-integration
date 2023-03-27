@@ -1,0 +1,84 @@
+{
+  "name": "eslint-plugin-dprint-integration",
+  "version": "0.0.0",
+  "packageManager": "pnpm@7.30.3",
+  "author": "Ray <i@mk1.io> (@so1ve)",
+  "description": "",
+  "keywords": [],
+  "type": "module",
+  "homepage": "https://github.com/so1ve/eslint-plugin-dprint-integration#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/so1ve/eslint-plugin-dprint-integration.git"
+  },
+  "bugs": {
+    "url": "https://github.com/so1ve/eslint-plugin-dprint-integration/issues"
+  },
+  "license": "MIT",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "unbuild",
+    "stub": "unbuild --stub",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "check": "dprint check",
+    "fmt": "dprint fmt",
+    "prepublishOnly": "nr build",
+    "release": "bumpp --commit --push --tag && pnpm publish",
+    "start": "tsx src/index.ts",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@dprint/dockerfile": "^0.3.0",
+    "@dprint/formatter": "^0.2.0",
+    "@dprint/json": "^0.17.1",
+    "@dprint/markdown": "^0.15.2",
+    "@dprint/toml": "^0.5.4",
+    "@dprint/typescript": "^0.84.0",
+    "prettier-linter-helpers": "^1.0.0"
+  },
+  "devDependencies": {
+    "@antfu/ni": "^0.20.0",
+    "@babel/types": "^7.21.3",
+    "@so1ve/dprint-config": "^0.51.0",
+    "@so1ve/eslint-config": "^0.51.0",
+    "@types/eslint": "^8.21.3",
+    "@types/node": "^18.15.10",
+    "@types/prettier-linter-helpers": "^1.0.1",
+    "bumpp": "^9.0.0",
+    "dprint": "^0.35.3",
+    "eslint": "^8.36.0",
+    "eslint-plugin-dprint-integration": "workspace:^0.0.0",
+    "pnpm": "^7.30.3",
+    "tsx": "^3.12.6",
+    "typescript": "^5.0.2",
+    "unbuild": "^1.1.2",
+    "vite": "^4.2.1",
+    "vitest": "^0.29.7"
+  }
+}
