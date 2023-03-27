@@ -2,7 +2,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/eslint-plugin-dprint-integration?color=a1b858&label=)](https://www.npmjs.com/package/eslint-plugin-dprint-integration)
 
-Make dprint work with eslint.
+Make dprint work with eslint. Works perfectly with virtual files (like codeblocks in markdown).
 
 ## 📦 Installation
 
@@ -29,6 +29,15 @@ module.exports = {
 ```
 
 This will use dprint's default config.
+
+Or:
+
+```ts
+// .eslintrc.js
+module.exports = {
+  extends: ["plugin:dprint-integration/recommended"],
+};
+```
 
 ### Advanced
 
