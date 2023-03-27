@@ -10,7 +10,7 @@ import type { PluginConfig } from "./types";
 
 const { INSERT, DELETE, REPLACE } = generateDifferences;
 
-function reportDifference(context: Rule.RuleContext, difference: Difference) {
+function reportDifference (context: Rule.RuleContext, difference: Difference) {
   const { operation, offset, deleteText = "", insertText = "" } = difference;
   const range = [offset, offset + deleteText.length] as [number, number];
   const [start, end] = range.map(index => context.getSourceCode().getLocFromIndex(index));
@@ -30,7 +30,7 @@ let formatter: Formatter;
 
 export default {
   configs: {
-    recommended: {
+    "recommended": {
       plugins: ["dprint-integration"],
       rules: {
         "dprint-integration/dprint": "error",

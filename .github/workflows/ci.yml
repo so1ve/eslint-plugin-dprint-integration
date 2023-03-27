@@ -53,31 +53,11 @@ jobs:
       - name: Install
         run: nci
 
+      - name: Build
+        run: nr build
+
       - name: Typecheck
         run: nr typecheck
-
-  check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2.2.4
-
-      - name: Set node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
-          cache: pnpm
-
-      - name: Setup
-        run: npm i -g @antfu/ni
-
-      - name: Install
-        run: nci
-
-      - name: Check
-        run: nr check
 
   test:
     runs-on: ${{ matrix.os }}
