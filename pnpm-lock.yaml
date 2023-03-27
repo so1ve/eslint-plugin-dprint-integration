@@ -1,57 +1,56 @@
 lockfileVersion: 5.4
 
-importers:
+specifiers:
+  '@antfu/ni': ^0.20.0
+  '@babel/types': ^7.21.3
+  '@dprint/dockerfile': ^0.3.0
+  '@dprint/formatter': ^0.2.0
+  '@dprint/json': ^0.17.1
+  '@dprint/markdown': ^0.15.2
+  '@dprint/toml': ^0.5.4
+  '@dprint/typescript': ^0.84.0
+  '@so1ve/eslint-config': ^0.53.0
+  '@types/eslint': ^8.21.3
+  '@types/node': ^18.15.10
+  '@types/prettier-linter-helpers': ^1.0.1
+  bumpp: ^9.0.0
+  eslint: ^8.36.0
+  eslint-plugin-dprint-integration: workspace:*
+  pkgroll: ^1.9.0
+  pnpm: ^7.30.3
+  prettier-linter-helpers: ^1.0.0
+  tsx: ^3.12.6
+  typescript: ^5.0.2
+  unbuild: ^1.1.2
+  vite: ^4.2.1
+  vitest: ^0.29.7
 
-  .:
-    specifiers:
-      '@antfu/ni': ^0.20.0
-      '@babel/types': ^7.21.3
-      '@dprint/dockerfile': ^0.3.0
-      '@dprint/formatter': ^0.2.0
-      '@dprint/json': ^0.17.1
-      '@dprint/markdown': ^0.15.2
-      '@dprint/toml': ^0.5.4
-      '@dprint/typescript': ^0.84.0
-      '@so1ve/eslint-config': ^0.53.0
-      '@types/eslint': ^8.21.3
-      '@types/node': ^18.15.10
-      '@types/prettier-linter-helpers': ^1.0.1
-      bumpp: ^9.0.0
-      eslint: ^8.36.0
-      eslint-plugin-dprint-integration: workspace:*
-      pkgroll: ^1.9.0
-      pnpm: ^7.30.3
-      prettier-linter-helpers: ^1.0.0
-      tsx: ^3.12.6
-      typescript: ^5.0.2
-      unbuild: ^1.1.2
-      vite: ^4.2.1
-      vitest: ^0.29.7
-    dependencies:
-      '@dprint/dockerfile': 0.3.0
-      '@dprint/formatter': 0.2.0
-      '@dprint/json': 0.17.1
-      '@dprint/markdown': 0.15.2
-      '@dprint/toml': 0.5.4
-      '@dprint/typescript': 0.84.0
-      prettier-linter-helpers: 1.0.0
-    devDependencies:
-      '@antfu/ni': 0.20.0
-      '@babel/types': 7.21.3
-      '@so1ve/eslint-config': 0.53.0_j4766f7ecgqbon3u7zlxn5zszu
-      '@types/eslint': 8.21.3
-      '@types/node': 18.15.10
-      '@types/prettier-linter-helpers': 1.0.1
-      bumpp: 9.0.0
-      eslint: 8.36.0
-      eslint-plugin-dprint-integration: 'link:'
-      pkgroll: 1.9.0_typescript@5.0.2
-      pnpm: 7.30.3
-      tsx: 3.12.6
-      typescript: 5.0.2
-      unbuild: 1.1.2
-      vite: 4.2.1_@types+node@18.15.10
-      vitest: 0.29.7
+dependencies:
+  '@dprint/dockerfile': 0.3.0
+  '@dprint/formatter': 0.2.0
+  '@dprint/json': 0.17.1
+  '@dprint/markdown': 0.15.2
+  '@dprint/toml': 0.5.4
+  '@dprint/typescript': 0.84.0
+  prettier-linter-helpers: 1.0.0
+
+devDependencies:
+  '@antfu/ni': 0.20.0
+  '@babel/types': 7.21.3
+  '@so1ve/eslint-config': 0.53.0_j4766f7ecgqbon3u7zlxn5zszu
+  '@types/eslint': 8.21.3
+  '@types/node': 18.15.10
+  '@types/prettier-linter-helpers': 1.0.1
+  bumpp: 9.0.0
+  eslint: 8.36.0
+  eslint-plugin-dprint-integration: 'link:'
+  pkgroll: 1.9.0_typescript@5.0.2
+  pnpm: 7.30.3
+  tsx: 3.12.6
+  typescript: 5.0.2
+  unbuild: 1.1.2
+  vite: 4.2.1_@types+node@18.15.10
+  vitest: 0.29.7
 
 packages:
 
