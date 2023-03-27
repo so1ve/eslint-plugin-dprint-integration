@@ -41,7 +41,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "unbuild",
+    "build": "pkgroll",
     "stub": "unbuild --stub",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -71,7 +71,8 @@
     "@types/prettier-linter-helpers": "^1.0.1",
     "bumpp": "^9.0.0",
     "eslint": "^8.36.0",
-    "eslint-plugin-dprint-integration": "workspace:^0.0.0",
+    "eslint-plugin-dprint-integration": "workspace:*",
+    "pkgroll": "^1.9.0",
     "pnpm": "^7.30.3",
     "tsx": "^3.12.6",
     "typescript": "^5.0.2",
