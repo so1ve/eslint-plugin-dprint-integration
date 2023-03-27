@@ -1,15 +1,16 @@
 import * as fs from "node:fs";
-import { extname } from "node:path";
 
-import { getBuffer as getDockerfileBuffer } from "@dprint/dockerfile";
 import type { Formatter as DprintFormatter, GlobalConfiguration } from "@dprint/formatter";
+// eslint-disable-next-line dprint-integration/dprint
 import { createFromBuffer } from "@dprint/formatter";
+import { getBuffer as getDockerfileBuffer } from "@dprint/dockerfile";
 import { getPath as getJsonPath } from "@dprint/json";
 import { getPath as getMarkdownPath } from "@dprint/markdown";
 import { getBuffer as getTomlBuffer } from "@dprint/toml";
 import { getPath as getTypescriptPath } from "@dprint/typescript";
 
 import type { PluginConfig } from "./types";
+import { detectLanguage, hasNewlineOnly } from "./utils";
 
 const createFormatter = (
   pathOrBuffer: string | ArrayBuffer,
@@ -23,21 +24,6 @@ const createFormatter = (
   formatter.setConfig(globalConfig, pluginConfig);
   return formatter;
 };
-
-const TS_EXTS = [".ts", ".tsx", ".js", ".jsx", ".mjs", ".cjs", ".mts", ".cts"];
-const JSON_EXTS = [".json", ".jsonc", ".json5"];
-const MARKDOWN_EXTS = [".md", ".markdown", ".mdown", ".mkd"];
-
-const detectLanguage = (filename: string) => {
-  const ext = extname(filename);
-  if (TS_EXTS.includes(ext)) { return "typescript"; }
-  if (ext === ".toml") { return "toml"; }
-  if (JSON_EXTS.includes(ext)) { return "json"; }
-  if (MARKDOWN_EXTS.includes(ext)) { return "markdown"; }
-  if (filename === "Dockerfile") { return "dockerfile"; }
-};
-
-const hasNewlineOnly = (str: string) => ["\r", "\n", "\r\n"].includes(str);
 
 export class Formatter {
   private readonly typescript: DprintFormatter;
