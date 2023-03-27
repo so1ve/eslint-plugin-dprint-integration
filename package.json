@@ -64,7 +64,7 @@
   "devDependencies": {
     "@antfu/ni": "^0.20.0",
     "@babel/types": "^7.21.3",
-    "@so1ve/eslint-config": "^0.52.0",
+    "@so1ve/eslint-config": "^0.52.1",
     "@types/eslint": "^8.21.3",
     "@types/node": "^18.15.10",
     "@types/prettier-linter-helpers": "^1.0.1",
