@@ -12,13 +12,11 @@ importers:
       '@dprint/markdown': ^0.15.2
       '@dprint/toml': ^0.5.4
       '@dprint/typescript': ^0.84.0
-      '@so1ve/dprint-config': ^0.51.0
       '@so1ve/eslint-config': ^0.51.0
       '@types/eslint': ^8.21.3
       '@types/node': ^18.15.10
       '@types/prettier-linter-helpers': ^1.0.1
       bumpp: ^9.0.0
-      dprint: ^0.35.3
       eslint: ^8.36.0
       eslint-plugin-dprint-integration: workspace:^0.0.0
       pnpm: ^7.30.3
@@ -39,13 +37,11 @@ importers:
     devDependencies:
       '@antfu/ni': 0.20.0
       '@babel/types': 7.21.3
-      '@so1ve/dprint-config': 0.51.0_dprint@0.35.3
       '@so1ve/eslint-config': 0.51.0_j4766f7ecgqbon3u7zlxn5zszu
       '@types/eslint': 8.21.3
       '@types/node': 18.15.10
       '@types/prettier-linter-helpers': 1.0.1
       bumpp: 9.0.0
-      dprint: 0.35.3
       eslint: 8.36.0
       eslint-plugin-dprint-integration: 'link:'
       pnpm: 7.30.3
@@ -949,14 +945,6 @@ packages:
       rollup: 3.20.2
     dev: true
 
-  /@so1ve/dprint-config/0.51.0_dprint@0.35.3:
-    resolution: {integrity: sha512-K+zdP1crnzaMwYI3mgFGgEs0Bo/tLh5IxRELzbs5Wd8zxKugW1bnqEUPQjoyFRa5yEnZLi/bZYdB2zdKa6q9Nw==}
-    peerDependencies:
-      dprint: '*'
-    dependencies:
-      dprint: 0.35.3
-    dev: true
-
   /@so1ve/eslint-config-basic/0.51.0_y7rczx7zuvsmujgglzevd4vf44:
     resolution: {integrity: sha512-l5pO+k//J41QLy3xLAkLTGuWVzP62jV+m11y8oNko8M0xKEKUqozzeddLu3+kDP/0pRIrR1nGuLmurN+jL1f9g==}
     peerDependencies:
@@ -1318,15 +1306,6 @@ packages:
     hasBin: true
     dev: true
 
-  /agent-base/6.0.2:
-    resolution: {integrity: sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==}
-    engines: {node: '>= 6.0.0'}
-    dependencies:
-      debug: 4.3.4
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
   /ajv/6.12.6:
     resolution: {integrity: sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==}
     dependencies:
@@ -1463,10 +1442,6 @@ packages:
       electron-to-chromium: 1.4.340
       node-releases: 2.0.10
       update-browserslist-db: 1.0.10_browserslist@4.21.5
-    dev: true
-
-  /buffer-crc32/0.2.13:
-    resolution: {integrity: sha512-VO9Ht/+p3SN7SKWqcrgEzjGbRSJYTx+Q1pTQC0wrWqHx0vpJraQ6GtHx8tvcg1rlK1byhU5gccxgOgj7B0TDkQ==}
     dev: true
 
   /buffer-from/1.1.2:
@@ -1751,17 +1726,6 @@ packages:
       dom-serializer: 2.0.0
       domelementtype: 2.3.0
       domhandler: 5.0.3
-    dev: true
-
-  /dprint/0.35.3:
-    resolution: {integrity: sha512-BWFdr2Ury2dtqyjaTI9P5vCpb1yn5laLfO3Yo5egrrDlK2A2mv6CSpe/oK2cuOPESMY1JT2dubMv2dPDiJfMnA==}
-    hasBin: true
-    requiresBuild: true
-    dependencies:
-      https-proxy-agent: 5.0.1
-      yauzl: 2.10.0
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   /eastasianwidth/0.2.0:
@@ -2393,12 +2357,6 @@ packages:
       reusify: 1.0.4
     dev: true
 
-  /fd-slicer/1.1.0:
-    resolution: {integrity: sha512-cE1qsB/VwyQozZ+q1dGxR8LBYNZeofhEdUNGSMbQD3Gw2lAzX9Zb3uIU6Ebc/Fmyjo9AWWfnn0AUCHqtevs/8g==}
-    dependencies:
-      pend: 1.2.0
-    dev: true
-
   /file-entry-cache/6.0.1:
     resolution: {integrity: sha512-7Gps/XWymbLk2QLYK4NzpMOrYjMhdIxXuIvy2QBsLE6ljuodKvdkWs/cpyJJ3CVIVpH0Oi1Hvg1ovbMzLdFBBg==}
     engines: {node: ^10.12.0 || >=12.0.0}
@@ -2666,16 +2624,6 @@ packages:
       domhandler: 5.0.3
       domutils: 3.0.1
       entities: 4.4.0
-    dev: true
-
-  /https-proxy-agent/5.0.1:
-    resolution: {integrity: sha512-dFcAjpTQFgoLMzC2VwU+C/CbS7uRL0lWmxDITmqm7C+7F0Odmj6s9l6alZc6AELXhrnggM2CeWSXHGOdX2YtwA==}
-    engines: {node: '>= 6'}
-    dependencies:
-      agent-base: 6.0.2
-      debug: 4.3.4
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   /ignore/5.2.4:
@@ -3344,10 +3292,6 @@ packages:
 
   /pathval/1.1.1:
     resolution: {integrity: sha512-Dp6zGqpTdETdR63lehJYPeIOqpiNBNtc7BpWSLrOje7UaIsE5aY92r/AunQA7rsXvet3lrJ3JnZX29UPTKXyKQ==}
-    dev: true
-
-  /pend/1.2.0:
-    resolution: {integrity: sha512-F3asv42UuXchdzt+xXqfW1OGlVBe+mxa2mqI0pg5yAHZPvFmY3Y6drSf/GQ1A86WgWEN9Kzh/WrgKa6iGcHXLg==}
     dev: true
 
   /picocolors/1.0.0:
@@ -4180,13 +4124,6 @@ packages:
   /yaml/2.2.1:
     resolution: {integrity: sha512-e0WHiYql7+9wr4cWMx3TVQrNwejKaEe7/rHNmQmqRjazfOP5W8PB6Jpebb5o6fIapbz9o9+2ipcaTM2ZwDI6lw==}
     engines: {node: '>= 14'}
-    dev: true
-
-  /yauzl/2.10.0:
-    resolution: {integrity: sha512-p4a9I6X6nu6IhoGmBqAcbJy1mlC4j27vEPZX9F4L4/vZT3Lyq1VkFHw/V/PUcB9Buo+DG3iHkT0x3Qya58zc3g==}
-    dependencies:
-      buffer-crc32: 0.2.13
-      fd-slicer: 1.1.0
     dev: true
 
   /yocto-queue/0.1.0:

@@ -30,12 +30,14 @@ const MARKDOWN_EXTS = [".md", ".markdown", ".mdown", ".mkd"];
 
 const detectLanguage = (filename: string) => {
   const ext = extname(filename);
-  if (TS_EXTS.includes(ext)) { return "typescript"; }
-  if (ext === ".toml") { return "toml"; }
-  if (JSON_EXTS.includes(ext)) { return "json"; }
-  if (MARKDOWN_EXTS.includes(ext)) { return "markdown"; }
-  if (filename === "Dockerfile") { return "dockerfile"; }
+  if (TS_EXTS.includes(ext)) return "typescript";
+  if (ext === ".toml") return "toml";
+  if (JSON_EXTS.includes(ext)) return "json";
+  if (MARKDOWN_EXTS.includes(ext)) return "markdown";
+  if (filename === "Dockerfile") return "dockerfile";
 };
+
+const hasNewlineOnly = (str: string) => ["\r", "\n", "\r\n"].includes(str);
 
 export class Formatter {
   private readonly typescript: DprintFormatter;
@@ -56,7 +58,9 @@ export class Formatter {
 
   format(filename: string, source: string) {
     const language = detectLanguage(filename);
-    if (!language) { return source; }
+    if (!language) return source;
+    // Special Handle: If the source is only a newline, don't format it, or it will break the file.
+    if (language === "typescript" && hasNewlineOnly(source)) return source;
     switch (language) {
       case "typescript":
         return this.typescript.formatText(filename, source);

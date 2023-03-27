@@ -4,12 +4,13 @@ import type { ESLint, Rule } from "eslint";
 import { generateDifferences, showInvisibles } from "prettier-linter-helpers";
 import type { Difference } from "prettier-linter-helpers";
 
+import disableConflict from "./disable-conflict";
 import { Formatter } from "./format";
 import type { PluginConfig } from "./types";
 
 const { INSERT, DELETE, REPLACE } = generateDifferences;
 
-function reportDifference (context: Rule.RuleContext, difference: Difference) {
+function reportDifference(context: Rule.RuleContext, difference: Difference) {
   const { operation, offset, deleteText = "", insertText = "" } = difference;
   const range = [offset, offset + deleteText.length] as [number, number];
   const [start, end] = range.map(index => context.getSourceCode().getLocFromIndex(index));
@@ -25,6 +26,8 @@ function reportDifference (context: Rule.RuleContext, difference: Difference) {
   });
 }
 
+let formatter: Formatter;
+
 export default {
   configs: {
     recommended: {
@@ -35,6 +38,7 @@ export default {
         "prefer-arrow-callback": "off",
       },
     },
+    "disable-conflict": disableConflict,
   },
   rules: {
     dprint: {
@@ -96,8 +100,9 @@ export default {
         const sourceCode = context.getSourceCode();
         const filename = basename(context.getFilename());
         const source = sourceCode.text;
-
-        const formatter = new Formatter(globalConfig, pluginConfig);
+        if (!formatter) {
+          formatter = new Formatter(globalConfig, pluginConfig);
+        }
 
         return {
           Program() {
