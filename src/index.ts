@@ -10,9 +10,9 @@ import type { PluginConfig } from "./types";
 
 const { INSERT, DELETE, REPLACE } = generateDifferences;
 
-function reportDifference (context: Rule.RuleContext, difference: Difference) {
+function reportDifference (context: Rule.RuleContext, difference: Difference, rangeOffset = 0) {
   const { operation, offset, deleteText = "", insertText = "" } = difference;
-  const range = [offset, offset + deleteText.length] as [number, number];
+  const range = [offset + rangeOffset, offset + rangeOffset + deleteText.length] as [number, number];
   const [start, end] = range.map(index => context.getSourceCode().getLocFromIndex(index));
 
   context.report({
@@ -107,16 +107,18 @@ export default {
         return {
           Program(node) {
             const source = sourceCode.getText(node);
+            let offset: number | undefined;
             // TODO: Support .vue files
             if (ext === ".vue") {
               filename = "file.ts";
+              offset = sourceCode.text.indexOf(source);
             }
             const formatted = formatter.format(filename, source);
 
             if (source !== formatted) {
               const differences = generateDifferences(source, formatted);
               for (const difference of differences) {
-                reportDifference(context, difference);
+                reportDifference(context, difference, offset);
               }
             }
           },
