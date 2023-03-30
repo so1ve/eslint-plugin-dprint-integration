@@ -1,4 +1,4 @@
-import { basename } from "node:path";
+import { basename, extname } from "node:path";
 
 import type { ESLint, Rule } from "eslint";
 import { generateDifferences, showInvisibles } from "prettier-linter-helpers";
@@ -98,7 +98,8 @@ export default {
         const globalConfig = context.options[0] || {};
         const pluginConfig: PluginConfig = context.options[1] || {};
         const sourceCode = context.getSourceCode();
-        const filename = basename(context.getFilename());
+        let filename = basename(context.getFilename());
+        const ext = extname(filename);
         if (!formatter) {
           formatter = new Formatter(globalConfig, pluginConfig);
         }
@@ -106,6 +107,10 @@ export default {
         return {
           Program(node) {
             const source = sourceCode.getText(node);
+            // TODO: Support .vue files
+            if (ext === ".vue") {
+              filename = "file.vue";
+            }
             const formatted = formatter.format(filename, source);
 
             if (source !== formatted) {
