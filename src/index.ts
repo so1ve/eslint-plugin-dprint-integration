@@ -100,16 +100,17 @@ export default {
         const sourceCode = context.getSourceCode();
         let filename = basename(context.getFilename());
         const ext = extname(filename);
+        let source = sourceCode.text;
         if (!formatter) {
           formatter = new Formatter(globalConfig, pluginConfig);
         }
 
         return {
           Program(node) {
-            const source = sourceCode.getText(node);
             let offset: number | undefined;
             // TODO: Support .vue files
             if (ext === ".vue") {
+              source = sourceCode.getText(node);
               filename = "file.ts";
               offset = sourceCode.text.indexOf(source);
             }
