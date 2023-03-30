@@ -99,13 +99,13 @@ export default {
         const pluginConfig: PluginConfig = context.options[1] || {};
         const sourceCode = context.getSourceCode();
         const filename = basename(context.getFilename());
-        const source = sourceCode.text;
         if (!formatter) {
           formatter = new Formatter(globalConfig, pluginConfig);
         }
 
         return {
-          Program() {
+          Program(node) {
+            const source = sourceCode.getText(node);
             const formatted = formatter.format(filename, source);
 
             if (source !== formatted) {
