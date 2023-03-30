@@ -109,7 +109,7 @@ export default {
             const source = sourceCode.getText(node);
             // TODO: Support .vue files
             if (ext === ".vue") {
-              filename = "file.vue";
+              filename = "file.ts";
             }
             const formatted = formatter.format(filename, source);
 
