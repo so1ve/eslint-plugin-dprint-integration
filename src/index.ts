@@ -112,7 +112,7 @@ export default {
             if (ext === ".vue") {
               source = sourceCode.getText(node);
               filename = "file.ts";
-              offset = sourceCode.text.indexOf(source);
+              offset = node.range?.[0];
             }
             const formatted = formatter.format(filename, source);
 
