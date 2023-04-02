@@ -9,6 +9,7 @@ import { Formatter } from "./format";
 import type { PluginConfig } from "./types";
 
 const { INSERT, DELETE, REPLACE } = generateDifferences;
+const VIRTUAL_EXTS = [".vue", ".svelte"];
 
 function reportDifference (context: Rule.RuleContext, difference: Difference, rangeOffset = 0) {
   const { operation, offset, deleteText = "", insertText = "" } = difference;
@@ -100,19 +101,17 @@ export default {
         const sourceCode = context.getSourceCode();
         let filename = basename(context.getFilename());
         const ext = extname(filename);
-        let source = sourceCode.text;
         if (!formatter) {
           formatter = new Formatter(globalConfig, pluginConfig);
         }
 
         return {
           Program(node) {
-            let offset: number | undefined;
-            // TODO: Support .vue files
-            if (ext === ".vue") {
-              source = sourceCode.getText(node);
+            const offset = node.range?.[0];
+            const source = sourceCode.getText(node);
+            // TODO: Support .vue and .svelte virtual script files
+            if (VIRTUAL_EXTS.includes(ext)) {
               filename = "file.ts";
-              offset = node.range?.[0];
             }
             const formatted = formatter.format(filename, source);
 
