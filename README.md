@@ -39,6 +39,15 @@ module.exports = {
 };
 ```
 
+To turn off the conflicting stylish eslint rules (like eslint-config-prettier), just add:
+
+```ts
+// .eslintrc.js
+module.exports = {
+  extends: ["plugin:dprint-integration/disable-conflict"],
+};
+```
+
 ### Advanced
 
 You can pass config to the plugin:
