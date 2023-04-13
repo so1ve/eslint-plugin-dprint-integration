@@ -2,49 +2,36 @@
 
 exports[`dprint json config > should resolve config 1`] = `
 [
-  {
-    "errorCount": 2,
-    "fatalErrorCount": 0,
-    "filePath": "C:\\\\Workspace\\\\eslint-plugin-dprint-integration\\\\test\\\\__fixtures__\\\\dprint-json\\\\a.ts",
-    "fixableErrorCount": 1,
-    "fixableWarningCount": 0,
-    "messages": [
-      {
-        "column": 1,
-        "endColumn": 58,
-        "endLine": 1,
-        "line": 1,
-        "message": "Definition for rule 'unused-imports/no-unused-vars' was not found.",
-        "nodeType": null,
-        "ruleId": "unused-imports/no-unused-vars",
-        "severity": 2,
-      },
-      {
-        "column": 11,
-        "endColumn": 15,
-        "endLine": 2,
-        "fix": {
-          "range": [
-            68,
-            72,
-          ],
-          "text": "'1';
+  [
+    {
+      "column": 1,
+      "endColumn": 58,
+      "endLine": 1,
+      "line": 1,
+      "message": "Definition for rule 'unused-imports/no-unused-vars' was not found.",
+      "nodeType": null,
+      "ruleId": "unused-imports/no-unused-vars",
+      "severity": 2,
+    },
+    {
+      "column": 11,
+      "endColumn": 15,
+      "endLine": 2,
+      "fix": {
+        "range": [
+          68,
+          72,
+        ],
+        "text": "'1';
 ",
-        },
-        "line": 2,
-        "message": "Replace \`\\"1\\";\` with \`'1';⏎\`",
-        "messageId": "replace",
-        "nodeType": null,
-        "ruleId": "dprint-integration/dprint",
-        "severity": 2,
       },
-    ],
-    "source": "// eslint-disable-next-line unused-imports/no-unused-vars
-const a = \\"1\\";
-",
-    "suppressedMessages": [],
-    "usedDeprecatedRules": [],
-    "warningCount": 0,
-  },
+      "line": 2,
+      "message": "Replace \`\\"1\\";\` with \`'1';⏎\`",
+      "messageId": "replace",
+      "nodeType": null,
+      "ruleId": "dprint-integration/dprint",
+      "severity": 2,
+    },
+  ],
 ]
 `;

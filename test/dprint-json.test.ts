@@ -29,9 +29,12 @@ const eslint = new ESLint({
   ignore: false,
 });
 
+const runFixtures = (fixtures: string) =>
+  eslint.lintFiles(relative(fixtures)).then(result => result.map(r => r.messages));
+
 describe("dprint json config", () => {
   it("should resolve config", async () => {
-    const result = await eslint.lintFiles(relative("./__fixtures__/dprint-json/**"));
+    const result = await runFixtures("./__fixtures__/dprint-json/**");
     expect(result).toMatchSnapshot();
   });
 });
