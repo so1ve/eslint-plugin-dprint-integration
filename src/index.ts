@@ -3,15 +3,18 @@ import { basename, extname } from "node:path";
 import type { ESLint, Rule } from "eslint";
 import { generateDifferences, showInvisibles } from "prettier-linter-helpers";
 import type { Difference } from "prettier-linter-helpers";
+import { defu } from "defu";
 
 import disableConflict from "./disable-conflict";
 import { Formatter } from "./format";
 import type { PluginConfig } from "./types";
+import { resolveDprintJson } from "./resolve-dprint-json";
+import { omit } from "./utils";
 
 const { INSERT, DELETE, REPLACE } = generateDifferences;
 const VIRTUAL_EXTS = [".vue", ".svelte"];
 
-function reportDifference (context: Rule.RuleContext, difference: Difference, rangeOffset = 0) {
+function reportDifference(context: Rule.RuleContext, difference: Difference, rangeOffset = 0) {
   const { operation, offset, deleteText = "", insertText = "" } = difference;
   const range = [offset + rangeOffset, offset + rangeOffset + deleteText.length] as [number, number];
   const [start, end] = range.map(index => context.getSourceCode().getLocFromIndex(index));
@@ -53,7 +56,14 @@ export default {
           // Global Config
           {
             type: "object",
-            properties: {},
+            properties: {
+              useDprintJson: {
+                anyOf: [
+                  { type: "boolean" },
+                  { type: "string" },
+                ],
+              },
+            },
             additionalProperties: true,
           },
           // Plugin Config
@@ -96,21 +106,39 @@ export default {
         },
       },
       create(context) {
-        const globalConfig = context.options[0] || {};
-        const pluginConfig: PluginConfig = context.options[1] || {};
-        const sourceCode = context.getSourceCode();
-        let filename = basename(context.getFilename());
-        const ext = extname(filename);
+        const useDprintJson = context.options[0]?.useDprintJson as boolean | string | undefined;
+        let globalConfig = omit(context.options[0] || {}, ["useDprintJson"]);
+        let pluginConfig: PluginConfig = context.options[1] || {};
+        if (useDprintJson) {
+          const result = resolveDprintJson(typeof useDprintJson === "string" ? useDprintJson : undefined);
+          if (!result) {
+            throw new Error(
+              "`useDprintJson` is configured, but no dprint config found. Available config files: dprint.json, .dprint.json",
+            );
+          }
+          const { globalConfig: dprintGlobalConfig, pluginConfig: dprintPluginConfig } = result;
+          globalConfig = defu(globalConfig, dprintGlobalConfig);
+          pluginConfig = defu(pluginConfig, dprintPluginConfig);
+        }
         if (!formatter) {
           formatter = new Formatter(globalConfig, pluginConfig);
         }
+        const diagnostics = formatter.getConfigDiagnostics();
+        if (diagnostics.length > 0) {
+          throw new Error(diagnostics.map(d => d.message).join("\n"));
+        }
+        const sourceCode = context.getSourceCode();
+        let filename = basename(context.getFilename());
+        const ext = extname(filename);
 
         return {
           Program(node) {
             const offset = node.range?.[0];
             const source = sourceCode.getText(node);
-            // TODO: Support .vue and .svelte virtual script files
             if (VIRTUAL_EXTS.includes(ext)) {
+              // Hack: Use .ts extension for scripts in vue / svelte files
+              // Does not work for some strange languages such as coffeescript
+              // Wait, you are using coffeescript?
               filename = "file.ts";
             }
             const formatted = formatter.format(filename, source);

@@ -80,6 +80,29 @@ module.exports = {
 };
 ```
 
+If you want, you can use `dprint.json`:
+
+```ts
+// .eslintrc.js
+module.exports = {
+  plugins: ["dprint-integration"],
+  rules: {
+    "dprint-integration/dprint": [
+      "error",
+      // Global Config (will pass to the dprint formatter directly): Available at https://dprint.dev/config/
+      {
+        // A special option to use dprint.json
+        useDprintJson: true,
+        // Or a specified path to dprint.json
+        // useDprintJson: "path/to/dprint.json",
+      },
+      // Plugin Specific Config (will pass to the dprint plugins): Available at https://dprint.dev/plugins/
+      {},
+    ],
+  },
+};
+```
+
 ## 📝 License
 
 [MIT](./LICENSE). Made with ❤️ by [Ray](https://github.com/so1ve)

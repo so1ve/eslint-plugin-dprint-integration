@@ -1,7 +1,6 @@
 import * as fs from "node:fs";
 
 import type { Formatter as DprintFormatter, GlobalConfiguration } from "@dprint/formatter";
-// eslint-disable-next-line dprint-integration/dprint
 import { createFromBuffer } from "@dprint/formatter";
 import { getBuffer as getDockerfileBuffer } from "@dprint/dockerfile";
 import { getPath as getJsonPath } from "@dprint/json";
@@ -59,5 +58,15 @@ export class Formatter {
       case "dockerfile":
         return this.dockerfile.formatText(filename, source);
     }
+  }
+
+  getConfigDiagnostics() {
+    return [
+      ...this.typescript.getConfigDiagnostics(),
+      ...this.toml.getConfigDiagnostics(),
+      ...this.json.getConfigDiagnostics(),
+      ...this.markdown.getConfigDiagnostics(),
+      ...this.dockerfile.getConfigDiagnostics(),
+    ];
   }
 }
