@@ -6,6 +6,7 @@ import { describe, expect, it } from "vitest";
 import { dir } from "./utils";
 
 const dirname = dir();
+const relative = (path: string) => join(dirname, path);
 
 const eslint = new ESLint({
   baseConfig: {
@@ -20,7 +21,7 @@ const eslint = new ESLint({
     rules: {
       "dprint-integration/dprint": [
         "error",
-        { useDprintJson: join(dirname, "__fixtures__/dprint.json") },
+        { useDprintJson: relative("__fixtures__/dprint.json") },
       ],
     },
   },
@@ -30,7 +31,7 @@ const eslint = new ESLint({
 
 describe("dprint json config", () => {
   it("should resolve config", async () => {
-    const result = await eslint.lintFiles(join(dirname, "./__fixtures__/dprint-json/**"));
+    const result = await eslint.lintFiles(relative("./__fixtures__/dprint-json/**"));
     expect(result).toMatchSnapshot();
   });
 });
