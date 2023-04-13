@@ -60,7 +60,7 @@ export class Formatter {
     }
   }
 
-  getConfigDiagnostics() {
+  get configDiagnostics() {
     return [
       ...this.typescript.getConfigDiagnostics(),
       ...this.toml.getConfigDiagnostics(),

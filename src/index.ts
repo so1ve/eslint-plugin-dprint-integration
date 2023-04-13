@@ -123,7 +123,7 @@ export default {
         if (!formatter) {
           formatter = new Formatter(globalConfig, pluginConfig);
         }
-        const diagnostics = formatter.getConfigDiagnostics();
+        const diagnostics = formatter.configDiagnostics;
         if (diagnostics.length > 0) {
           throw new Error(diagnostics.map(d => d.message).join("\n"));
         }
