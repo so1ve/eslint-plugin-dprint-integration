@@ -60,7 +60,7 @@
     "@dprint/toml": "^0.5.4",
     "@dprint/typescript": "^0.84.1",
     "defu": "^6.1.2",
-    "find-up": "^6.3.0",
+    "find-up": "^5.0.0",
     "prettier-linter-helpers": "^1.0.0"
   },
   "devDependencies": {
