@@ -1,14 +1,5 @@
 {
-  "extends": [
-    "./b.json",
-    "./c.json"
-  ],
   "typescript": {
-    "useBraces": "never",
-    "quoteStyle": "alwaysSingle",
-    "module.sortImportDeclarations": "maintain",
-    "module.sortExportDeclarations": "maintain",
-    "exportDeclaration.sortNamedExports": "maintain",
-    "importDeclaration.sortNamedImports": "maintain"
+    "quoteStyle": "preferSingle"
   }
 }

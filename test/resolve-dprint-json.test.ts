@@ -1,24 +1,25 @@
-import { fileURLToPath } from "node:url";
-import { dirname, join } from "node:path";
+import { join } from "node:path";
 
 import { describe, expect, it } from "vitest";
 
 import { resolveDprintJson } from "../src/resolve-dprint-json";
 
-const dir = dirname(fileURLToPath(import.meta.url));
-const resolveByRelativePath = (relativePath: string) => resolveDprintJson(join(dir, relativePath));
+import { dir } from "./utils";
 
-describe("should", () => {
-  it("resolve", () => {
-    expect(resolveByRelativePath("./__fixtures__/a.json")).toEqual({
+const dirname = dir();
+const resolveByRelativePath = (relativePath: string) => resolveDprintJson(join(dirname, relativePath));
+
+describe("resolve dprint json", () => {
+  it("should resolve", () => {
+    expect(resolveByRelativePath("./__fixtures__/resolve-dprint-json/d.json")).toEqual({
       globalConfig: {
         a: "foo",
       },
       pluginConfig: {},
     });
   });
-  it("resolve nested extends", () => {
-    expect(resolveByRelativePath("./__fixtures__/dprint.json")).toEqual({
+  it("should resolve multiple and nested extends", () => {
+    expect(resolveByRelativePath("./__fixtures__/resolve-dprint-json/a.json")).toEqual({
       globalConfig: { homo: 1919, b: "bar", lineWidth: 114514 },
       pluginConfig: {
         typescript: {

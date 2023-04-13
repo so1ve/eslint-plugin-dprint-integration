@@ -1,0 +1,39 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`dprint json config > should resolve config 1`] = `
+[
+  {
+    "errorCount": 1,
+    "fatalErrorCount": 0,
+    "filePath": "C:\\\\Workspace\\\\eslint-plugin-dprint-integration\\\\test\\\\__fixtures__\\\\dprint-json\\\\a.ts",
+    "fixableErrorCount": 1,
+    "fixableWarningCount": 0,
+    "messages": [
+      {
+        "column": 11,
+        "endColumn": 15,
+        "endLine": 1,
+        "fix": {
+          "range": [
+            10,
+            14,
+          ],
+          "text": "'1';
+",
+        },
+        "line": 1,
+        "message": "Replace \`\\"1\\";\` with \`'1';⏎\`",
+        "messageId": "replace",
+        "nodeType": null,
+        "ruleId": "dprint-integration/dprint",
+        "severity": 2,
+      },
+    ],
+    "source": "const a = \\"1\\";
+",
+    "suppressedMessages": [],
+    "usedDeprecatedRules": [],
+    "warningCount": 0,
+  },
+]
+`;
