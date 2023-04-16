@@ -15,9 +15,9 @@ interface DprintJson {
 
 // Resolves dprint.json file
 // Implemented outside the dprint core since the js formatter API does not expose the resolveConfig function
-export function resolveDprintJson(path?: string, lastPath?: string): DprintJson | undefined {
-  if (path === lastPath && path) {
-    throw new Error(`Circular extends in ${path}`);
+function _resolveDprintJson(path?: string, visitedPaths = new Set<string>()): DprintJson | undefined {
+  if (path && visitedPaths.has(path)) {
+    throw new Error(`Circular extends: ${path}.`);
   }
   const dprintJsonFile = path ?? findup.sync(DPRINT_JSON_FILES);
   if (!dprintJsonFile) {
@@ -30,7 +30,10 @@ export function resolveDprintJson(path?: string, lastPath?: string): DprintJson 
   if (globalConfig.extends) {
     const filesToBeExtended = Array.isArray(globalConfig.extends) ? globalConfig.extends : [globalConfig.extends];
     const extendsConfig = filesToBeExtended.reduce((acc, fileToBeExtended) => {
-      const extendedConfig = resolveDprintJson(join(dirname(dprintJsonFile), fileToBeExtended), path);
+      const extendedConfig = _resolveDprintJson(
+        join(dirname(dprintJsonFile), fileToBeExtended),
+        new Set([...visitedPaths, dprintJsonFile]),
+      );
       if (!extendedConfig) {
         return acc;
       }
@@ -42,3 +45,5 @@ export function resolveDprintJson(path?: string, lastPath?: string): DprintJson 
   }
   return dprintConfig;
 }
+
+export const resolveDprintJson = (path?: string): DprintJson | undefined => _resolveDprintJson(path);
