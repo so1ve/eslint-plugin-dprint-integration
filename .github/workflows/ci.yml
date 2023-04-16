@@ -71,6 +71,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Set EOL
+        run: git config --global core.autocrlf false
+
       - name: Install pnpm
         uses: pnpm/action-setup@v2.2.4
 
