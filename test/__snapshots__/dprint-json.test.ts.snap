@@ -2,36 +2,34 @@
 
 exports[`dprint json config > should resolve config 1`] = `
 [
-  [
-    {
-      "column": 1,
-      "endColumn": 58,
-      "endLine": 1,
-      "line": 1,
-      "message": "Definition for rule 'unused-imports/no-unused-vars' was not found.",
-      "nodeType": null,
-      "ruleId": "unused-imports/no-unused-vars",
-      "severity": 2,
-    },
-    {
-      "column": 11,
-      "endColumn": 15,
-      "endLine": 2,
-      "fix": {
-        "range": [
-          68,
-          72,
-        ],
-        "text": "'1';
+  {
+    "column": 1,
+    "endColumn": 58,
+    "endLine": 1,
+    "line": 1,
+    "message": "Definition for rule 'unused-imports/no-unused-vars' was not found.",
+    "nodeType": null,
+    "ruleId": "unused-imports/no-unused-vars",
+    "severity": 2,
+  },
+  {
+    "column": 11,
+    "endColumn": 15,
+    "endLine": 2,
+    "fix": {
+      "range": [
+        0,
+        0,
+      ],
+      "text": "'1';
 ",
-      },
-      "line": 2,
-      "message": "Replace \`\\"1\\";\` with \`'1';⏎\`",
-      "messageId": "replace",
-      "nodeType": null,
-      "ruleId": "dprint-integration/dprint",
-      "severity": 2,
     },
-  ],
+    "line": 2,
+    "message": "Replace \`\\"1\\";\` with \`'1';⏎\`",
+    "messageId": "replace",
+    "nodeType": null,
+    "ruleId": "dprint-integration/dprint",
+    "severity": 2,
+  },
 ]
 `;
