@@ -9,10 +9,10 @@ import disableConflict from "./disable-conflict";
 import { Formatter } from "./format";
 import type { PluginConfig } from "./types";
 import { resolveDprintJson } from "./resolve-dprint-json";
-import { omit } from "./utils";
+import { getSvelteScriptTagOffset, omit } from "./utils";
 
 const { INSERT, DELETE, REPLACE } = generateDifferences;
-const VIRTUAL_EXTS = [".vue", ".svelte"];
+const VIRTUAL_EXTS = new Set([".vue"]);
 
 function reportDifference(context: Rule.RuleContext, difference: Difference, rangeOffset = 0) {
   const { operation, offset, deleteText = "", insertText = "" } = difference;
@@ -28,6 +28,15 @@ function reportDifference(context: Rule.RuleContext, difference: Difference, ran
     loc: { start, end },
     fix: fixer => fixer.replaceTextRange(range, insertText),
   });
+}
+
+function reportIf(context: Rule.RuleContext, source: string, formatted: string, offset = 0) {
+  if (source !== formatted) {
+    const differences = generateDifferences(source, formatted);
+    for (const difference of differences) {
+      reportDifference(context, difference, offset);
+    }
+  }
 }
 
 let formatter: Formatter;
@@ -135,20 +144,24 @@ export default {
           Program(node) {
             const offset = node.range?.[0];
             const source = sourceCode.getText(node);
-            if (VIRTUAL_EXTS.includes(ext)) {
-              // Hack: Use .ts extension for scripts in vue / svelte files
+            if (VIRTUAL_EXTS.has(ext)) {
+              // Hack: Use .ts extension for scripts in vue files
               // Does not work for some strange languages such as coffeescript
               // Wait, you are using coffeescript?
               filename = "file.ts";
             }
             const formatted = formatter.format(filename, source);
-
-            if (source !== formatted) {
-              const differences = generateDifferences(source, formatted);
-              for (const difference of differences) {
-                reportDifference(context, difference, offset);
-              }
-            }
+            reportIf(context, source, formatted, offset);
+          },
+          // For eslint-plugin-svelte
+          SvelteScriptElement(node: any) {
+            let offset = node.range?.[0];
+            const source = sourceCode.getText(node);
+            const { offset: scriptOffset, scriptText } = getSvelteScriptTagOffset(source);
+            offset += scriptOffset;
+            filename = "file.ts";
+            const formatted = formatter.format(filename, scriptText);
+            reportIf(context, source, formatted, offset);
           },
         };
       },

@@ -34,3 +34,12 @@ export function omit<T extends object, K extends keyof T>(obj: T, omitKeys: K[] 
 }
 
 export const readJson = (filename: string) => JSON.parse(readFileSync(filename, "utf8"));
+
+export function getSvelteScriptTagOffset(source: string) {
+  const startScriptTagRegex = /<script(\s+[^>]*?)?>/g;
+  const endScriptTagRegex = /<\/script>/g;
+  const offset = source.match(startScriptTagRegex)![0].length;
+  const end = source.search(endScriptTagRegex);
+  const scriptText = source.slice(offset, end);
+  return { offset, scriptText };
+}
