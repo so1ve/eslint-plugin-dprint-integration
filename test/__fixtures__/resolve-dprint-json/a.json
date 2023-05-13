@@ -1,8 +1,5 @@
 {
-  "extends": [
-    "./b.json",
-    "./c.json"
-  ],
+  "extends": ["./b.json", "./c.json"],
   "typescript": {
     "useBraces": "never",
     "quoteStyle": "alwaysSingle",

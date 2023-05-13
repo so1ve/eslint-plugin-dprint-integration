@@ -14,10 +14,19 @@ import { getSvelteScriptTagOffset, omit } from "./utils";
 const { INSERT, DELETE, REPLACE } = generateDifferences;
 const VIRTUAL_EXTS = new Set([".vue"]);
 
-function reportDifference(context: Rule.RuleContext, difference: Difference, rangeOffset = 0) {
+function reportDifference(
+  context: Rule.RuleContext,
+  difference: Difference,
+  rangeOffset = 0,
+) {
   const { operation, offset, deleteText = "", insertText = "" } = difference;
-  const range = [offset + rangeOffset, offset + rangeOffset + deleteText.length] as [number, number];
-  const [start, end] = range.map(index => context.getSourceCode().getLocFromIndex(index));
+  const range = [
+    offset + rangeOffset,
+    offset + rangeOffset + deleteText.length,
+  ] as [number, number];
+  const [start, end] = range.map((index) =>
+    context.getSourceCode().getLocFromIndex(index),
+  );
 
   context.report({
     messageId: operation,
@@ -26,11 +35,16 @@ function reportDifference(context: Rule.RuleContext, difference: Difference, ran
       insertText: showInvisibles(insertText),
     },
     loc: { start, end },
-    fix: fixer => fixer.replaceTextRange(range, insertText),
+    fix: (fixer) => fixer.replaceTextRange(range, insertText),
   });
 }
 
-function reportIf(context: Rule.RuleContext, source: string, formatted: string, offset = 0) {
+function reportIf(
+  context: Rule.RuleContext,
+  source: string,
+  formatted: string,
+  offset = 0,
+) {
   if (source !== formatted) {
     const differences = generateDifferences(source, formatted);
     for (const difference of differences) {
@@ -67,10 +81,7 @@ export default {
             type: "object",
             properties: {
               useDprintJson: {
-                anyOf: [
-                  { type: "boolean" },
-                  { type: "string" },
-                ],
+                anyOf: [{ type: "boolean" }, { type: "string" }],
               },
             },
             additionalProperties: true,
@@ -115,17 +126,25 @@ export default {
         },
       },
       create(context) {
-        const useDprintJson = context.options[0]?.useDprintJson as boolean | string | undefined;
+        const useDprintJson = context.options[0]?.useDprintJson as
+          | boolean
+          | string
+          | undefined;
         let globalConfig = omit(context.options[0] || {}, ["useDprintJson"]);
         let pluginConfig: PluginConfig = context.options[1] || {};
         if (useDprintJson) {
-          const result = resolveDprintJson(typeof useDprintJson === "string" ? useDprintJson : undefined);
+          const result = resolveDprintJson(
+            typeof useDprintJson === "string" ? useDprintJson : undefined,
+          );
           if (!result) {
             throw new Error(
               "`useDprintJson` is configured, but no dprint config found. Available config files: dprint.json, .dprint.json",
             );
           }
-          const { globalConfig: dprintGlobalConfig, pluginConfig: dprintPluginConfig } = result;
+          const {
+            globalConfig: dprintGlobalConfig,
+            pluginConfig: dprintPluginConfig,
+          } = result;
           globalConfig = defu(globalConfig, dprintGlobalConfig);
           pluginConfig = defu(pluginConfig, dprintPluginConfig);
         }
@@ -134,7 +153,7 @@ export default {
         }
         const diagnostics = formatter.configDiagnostics;
         if (diagnostics.length > 0) {
-          throw new Error(diagnostics.map(d => d.message).join("\n"));
+          throw new Error(diagnostics.map((d) => d.message).join("\n"));
         }
         const sourceCode = context.getSourceCode();
         let filename = basename(context.getFilename());
@@ -157,7 +176,8 @@ export default {
           SvelteScriptElement(node: any) {
             let offset = node.range?.[0];
             const source = sourceCode.getText(node);
-            const { offset: scriptOffset, scriptText } = getSvelteScriptTagOffset(source);
+            const { offset: scriptOffset, scriptText } =
+              getSvelteScriptTagOffset(source);
             offset += scriptOffset;
             filename = "file.ts";
             const formatted = formatter.format(filename, scriptText);

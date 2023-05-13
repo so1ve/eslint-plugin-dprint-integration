@@ -42,13 +42,13 @@
   },
   "scripts": {
     "build": "pkgroll",
-    "stub": "unbuild --stub",
+    "fmt": "dprint fmt",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "fmt": "dprint fmt",
     "prepublishOnly": "nr build",
     "release": "bumpp --commit --push --tag && pnpm publish",
     "start": "tsx src/index.ts",
+    "stub": "unbuild --stub",
     "test": "vitest",
     "typecheck": "tsc --noEmit"
   },
