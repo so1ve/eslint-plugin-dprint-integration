@@ -7,11 +7,14 @@ import { resolveDprintJson } from "../src/resolve-dprint-json";
 import { dir } from "./utils";
 
 const dirname = dir();
-const resolveByRelativePath = (relativePath: string) => resolveDprintJson(join(dirname, relativePath));
+const resolveByRelativePath = (relativePath: string) =>
+  resolveDprintJson(join(dirname, relativePath));
 
 describe("resolve dprint json", () => {
   it("should resolve", () => {
-    expect(resolveByRelativePath("./__fixtures__/resolve-dprint-json/d.json")).toEqual({
+    expect(
+      resolveByRelativePath("./__fixtures__/resolve-dprint-json/d.json"),
+    ).toEqual({
       globalConfig: {
         a: "foo",
       },
@@ -19,7 +22,9 @@ describe("resolve dprint json", () => {
     });
   });
   it("should resolve multiple and nested extends", () => {
-    expect(resolveByRelativePath("./__fixtures__/resolve-dprint-json/a.json")).toEqual({
+    expect(
+      resolveByRelativePath("./__fixtures__/resolve-dprint-json/a.json"),
+    ).toEqual({
       globalConfig: { homo: 1919, b: "bar", lineWidth: 114514 },
       pluginConfig: {
         typescript: {

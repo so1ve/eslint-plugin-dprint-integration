@@ -6,7 +6,13 @@ import { defu } from "defu";
 import { omit, pick, readJson } from "./utils";
 
 const DPRINT_JSON_FILES = ["dprint.json", ".dprint.json"] as const;
-const DPRINT_PLUGINS_BUILTIN = ["typescript", "toml", "json", "markdown", "dockerfile"] as const;
+const DPRINT_PLUGINS_BUILTIN = [
+  "typescript",
+  "toml",
+  "json",
+  "markdown",
+  "dockerfile",
+] as const;
 
 interface DprintJson {
   globalConfig: Record<string, any>;
@@ -15,7 +21,10 @@ interface DprintJson {
 
 // Resolves dprint.json file
 // Implemented outside the dprint core since the js formatter API does not expose the resolveConfig function
-function _resolveDprintJson(path?: string, visitedPaths = new Set<string>()): DprintJson | undefined {
+function _resolveDprintJson(
+  path?: string,
+  visitedPaths = new Set<string>(),
+): DprintJson | undefined {
   if (path && visitedPaths.has(path)) {
     throw new Error(`Circular extends: ${path}.`);
   }
@@ -26,9 +35,14 @@ function _resolveDprintJson(path?: string, visitedPaths = new Set<string>()): Dp
   const dprintJson = readJson(dprintJsonFile);
   const globalConfig = omit(dprintJson, DPRINT_PLUGINS_BUILTIN);
   const pluginConfig = pick(dprintJson, DPRINT_PLUGINS_BUILTIN);
-  const dprintConfig = { globalConfig: omit(globalConfig, ["extends"]), pluginConfig };
+  const dprintConfig = {
+    globalConfig: omit(globalConfig, ["extends"]),
+    pluginConfig,
+  };
   if (globalConfig.extends) {
-    const filesToBeExtended = Array.isArray(globalConfig.extends) ? globalConfig.extends : [globalConfig.extends];
+    const filesToBeExtended = Array.isArray(globalConfig.extends)
+      ? globalConfig.extends
+      : [globalConfig.extends];
     const extendsConfig = filesToBeExtended.reduce((acc, fileToBeExtended) => {
       const extendedConfig = _resolveDprintJson(
         join(dirname(dprintJsonFile), fileToBeExtended),
@@ -37,13 +51,16 @@ function _resolveDprintJson(path?: string, visitedPaths = new Set<string>()): Dp
       if (!extendedConfig) {
         return acc;
       }
+
       return defu(acc, extendedConfig);
     }, {});
     if (extendsConfig) {
       return defu(dprintConfig, extendsConfig);
     }
   }
+
   return dprintConfig;
 }
 
-export const resolveDprintJson = (path?: string): DprintJson | undefined => _resolveDprintJson(path);
+export const resolveDprintJson = (path?: string): DprintJson | undefined =>
+  _resolveDprintJson(path);

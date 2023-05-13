@@ -42,13 +42,13 @@
   },
   "scripts": {
     "build": "pkgroll",
-    "stub": "unbuild --stub",
+    "fmt": "dprint fmt",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "fmt": "dprint fmt",
     "prepublishOnly": "nr build",
     "release": "bumpp --commit --push --tag && pnpm publish",
     "start": "tsx src/index.ts",
+    "stub": "unbuild --stub",
     "test": "vitest",
     "typecheck": "tsc --noEmit"
   },
@@ -66,7 +66,7 @@
   "devDependencies": {
     "@antfu/ni": "^0.21.3",
     "@babel/types": "^7.21.4",
-    "@so1ve/eslint-config": "^0.67.0",
+    "@so1ve/eslint-config": "^0.82.0",
     "@types/eslint": "^8.37.0",
     "@types/node": "^18.15.11",
     "@types/prettier-linter-helpers": "^1.0.1",
