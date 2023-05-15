@@ -25,7 +25,7 @@ describe("resolve dprint json", () => {
     expect(
       resolveByRelativePath("./__fixtures__/resolve-dprint-json/a.json"),
     ).toEqual({
-      globalConfig: { homo: 1919, b: "bar", lineWidth: 114514 },
+      globalConfig: { homo: 1919, b: "bar", lineWidth: 114_514 },
       pluginConfig: {
         typescript: {
           "useBraces": "never",
