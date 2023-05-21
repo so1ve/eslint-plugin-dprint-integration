@@ -4,7 +4,10 @@
   "packageManager": "pnpm@7.32.4",
   "author": "Ray <i@mk1.io> (@so1ve)",
   "description": "Integrate dprint into eslint.",
-  "keywords": ["eslint","dprint"],
+  "keywords": [
+    "eslint",
+    "dprint"
+  ],
   "homepage": "https://github.com/so1ve/eslint-plugin-dprint-integration#readme",
   "repository": {
     "type": "git",
