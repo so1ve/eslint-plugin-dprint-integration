@@ -62,7 +62,7 @@ export const readJson = (filename: string) =>
   JSON.parse(readFileSync(filename, "utf8"));
 
 export function getSvelteScriptTagOffset(source: string) {
-  const startScriptTagRegex = /<script(\s+[^>]*?)?>/g;
+  const startScriptTagRegex = /<script(\s[^>]*)?>/g;
   const endScriptTagRegex = /<\/script>/g;
   const offset = source.match(startScriptTagRegex)![0].length;
   const end = source.search(endScriptTagRegex);

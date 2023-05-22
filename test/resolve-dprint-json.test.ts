@@ -21,6 +21,7 @@ describe("resolve dprint json", () => {
       pluginConfig: {},
     });
   });
+
   it("should resolve multiple and nested extends", () => {
     expect(
       resolveByRelativePath("./__fixtures__/resolve-dprint-json/a.json"),
