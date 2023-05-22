@@ -44,6 +44,7 @@ const runFixtures = (fixtures: string) =>
 describe("dprint json config", () => {
   it("should resolve config", async () => {
     const result = await runFixtures("./__fixtures__/dprint-json/**");
+
     expect(result).toMatchSnapshot();
   });
 });
