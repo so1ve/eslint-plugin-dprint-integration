@@ -8,7 +8,7 @@ specifiers:
   '@dprint/json': ^0.17.1
   '@dprint/markdown': ^0.15.2
   '@dprint/toml': ^0.5.4
-  '@dprint/typescript': ^0.84.1
+  '@dprint/typescript': ^0.85.0
   '@so1ve/eslint-config': ^0.99.0
   '@types/eslint': ^8.37.0
   '@types/node': ^18.15.11
@@ -33,7 +33,7 @@ dependencies:
   '@dprint/json': 0.17.2
   '@dprint/markdown': 0.15.2
   '@dprint/toml': 0.5.4
-  '@dprint/typescript': 0.84.4
+  '@dprint/typescript': 0.85.0
   defu: 6.1.2
   find-up: 5.0.0
   prettier-linter-helpers: 1.0.0
@@ -295,8 +295,8 @@ packages:
     resolution: {integrity: sha512-d+5GwwzztZD0QixmOBhaO6nWVLsAeYsJ1HJYNxDoDRbASFCpza9BBVshG5ctBRXCkkIHhD9BO1SnbOoRQltUQw==}
     dev: false
 
-  /@dprint/typescript/0.84.4:
-    resolution: {integrity: sha512-QIdXKI+bbtV7l+k3eBsPtbWFD4ELwY+Hbd9uH2sIOK6ZNzBquTO/EJNX77Pr25kdaj39lPr2Do1YDZM4iQVqXg==}
+  /@dprint/typescript/0.85.0:
+    resolution: {integrity: sha512-5pg6SZYy58ZMDtcA7/nFmD9r0U22oznFZUEO0P0+pXKohSigRXoK84pN4ZIz25/YVdBdW+rj1I4e2G7/MfqUmg==}
     dev: false
 
   /@es-joy/jsdoccomment/0.39.4:
