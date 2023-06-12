@@ -1,7 +1,7 @@
 {
   "name": "eslint-plugin-dprint-integration",
   "version": "0.3.0",
-  "packageManager": "pnpm@7.33.0",
+  "packageManager": "pnpm@7.33.1",
   "author": "Ray <i@mk1.io> (@so1ve)",
   "description": "Integrate dprint into eslint.",
   "keywords": [
