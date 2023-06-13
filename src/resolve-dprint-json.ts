@@ -1,7 +1,7 @@
 import { dirname, join } from "node:path";
 
-import findup from "find-up";
 import { defu } from "defu";
+import findup from "find-up";
 
 import { omit, pick, readJson } from "./utils";
 
