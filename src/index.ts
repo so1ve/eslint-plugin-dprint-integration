@@ -1,14 +1,14 @@
 import { basename, extname } from "node:path";
 
+import { defu } from "defu";
 import type { ESLint, Rule } from "eslint";
 import { generateDifferences, showInvisibles } from "prettier-linter-helpers";
 import type { Difference } from "prettier-linter-helpers";
-import { defu } from "defu";
 
 import disableConflict from "./disable-conflict";
 import { Formatter } from "./format";
-import type { PluginConfig } from "./types";
 import { resolveDprintJson } from "./resolve-dprint-json";
+import type { PluginConfig } from "./types";
 import { getSvelteScriptTagOffset, omit } from "./utils";
 
 const { INSERT, DELETE, REPLACE } = generateDifferences;
