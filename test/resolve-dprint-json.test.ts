@@ -3,7 +3,6 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 
 import { resolveDprintJson } from "../src/resolve-dprint-json";
-
 import { dir } from "./utils";
 
 const dirname = dir();

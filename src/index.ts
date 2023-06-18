@@ -2,8 +2,8 @@ import { basename, extname } from "node:path";
 
 import { defu } from "defu";
 import type { ESLint, Rule } from "eslint";
-import { generateDifferences, showInvisibles } from "prettier-linter-helpers";
 import type { Difference } from "prettier-linter-helpers";
+import { generateDifferences, showInvisibles } from "prettier-linter-helpers";
 
 import disableConflict from "./disable-conflict";
 import { Formatter } from "./format";
