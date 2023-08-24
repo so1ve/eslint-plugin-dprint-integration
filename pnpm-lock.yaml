@@ -6,7 +6,7 @@ specifiers:
   '@dprint/dockerfile': ^0.3.0
   '@dprint/formatter': ^0.2.0
   '@dprint/json': ^0.17.1
-  '@dprint/markdown': ^0.15.2
+  '@dprint/markdown': ^0.16.0
   '@dprint/toml': ^0.5.4
   '@dprint/typescript': ^0.85.0
   '@so1ve/eslint-config': ^0.102.0
@@ -31,7 +31,7 @@ dependencies:
   '@dprint/dockerfile': 0.3.0
   '@dprint/formatter': 0.2.0
   '@dprint/json': 0.17.4
-  '@dprint/markdown': 0.15.3
+  '@dprint/markdown': 0.16.0
   '@dprint/toml': 0.5.4
   '@dprint/typescript': 0.85.1
   defu: 6.1.2
@@ -296,8 +296,8 @@ packages:
     resolution: {integrity: sha512-9BmvkJRwICKr2hoC+WYtc3ewHi4PRRTmtk3RShpBFDEcYyMVB9+vXyxw/J/oMUlRfMY0jvOM5m+QlxgSo6g88Q==}
     dev: false
 
-  /@dprint/markdown/0.15.3:
-    resolution: {integrity: sha512-QCpvOQZtvq8HNbUobh9lAW5V4PrEncpfKLltxgM/DjLymDHUQ5EOnHUHaBlKu0ze+xtApBFnJpZS2xhjoNpj9g==}
+  /@dprint/markdown/0.16.0:
+    resolution: {integrity: sha512-fmI8hYL08rMYvpoHYn1IAcnLoaN3ITrAkeNtj+GjaysAOiyh7Av1zspDqD8mx8RWZcIwGL5/NpXvol8ysfqDPg==}
     dev: false
 
   /@dprint/toml/0.5.4:
