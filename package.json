@@ -58,7 +58,7 @@
     "@dprint/dockerfile": "^0.3.0",
     "@dprint/formatter": "^0.2.0",
     "@dprint/json": "^0.17.1",
-    "@dprint/markdown": "^0.15.2",
+    "@dprint/markdown": "^0.16.0",
     "@dprint/toml": "^0.5.4",
     "@dprint/typescript": "^0.85.0",
     "defu": "^6.1.2",
