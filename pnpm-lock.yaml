@@ -1,60 +1,67 @@
 lockfileVersion: 5.4
 
-specifiers:
-  '@antfu/ni': ^0.21.3
-  '@babel/types': ^7.21.4
-  '@dprint/dockerfile': ^0.3.0
-  '@dprint/formatter': ^0.2.0
-  '@dprint/json': ^0.17.1
-  '@dprint/markdown': ^0.16.0
-  '@dprint/toml': ^0.5.4
-  '@dprint/typescript': ^0.85.0
-  '@so1ve/eslint-config': ^0.102.0
-  '@types/eslint': ^8.37.0
-  '@types/node': ^18.15.11
-  '@types/prettier-linter-helpers': ^1.0.1
-  bumpp: ^9.1.0
-  defu: ^6.1.2
-  eslint: ^8.38.0
-  eslint-plugin-dprint-integration: workspace:*
-  find-up: ^5.0.0
-  pkgroll: ^1.9.0
-  pnpm: ^7.32.0
-  prettier-linter-helpers: ^1.0.0
-  tsx: ^3.12.6
-  typescript: ^5.0.4
-  unbuild: ^1.2.0
-  vite: ^4.2.1
-  vitest: ^0.32.0
+importers:
 
-dependencies:
-  '@dprint/dockerfile': 0.3.0
-  '@dprint/formatter': 0.2.0
-  '@dprint/json': 0.17.4
-  '@dprint/markdown': 0.16.0
-  '@dprint/toml': 0.5.4
-  '@dprint/typescript': 0.85.1
-  defu: 6.1.2
-  find-up: 5.0.0
-  prettier-linter-helpers: 1.0.0
-
-devDependencies:
-  '@antfu/ni': 0.21.4
-  '@babel/types': 7.22.5
-  '@so1ve/eslint-config': 0.102.2_iqf7tbmerllfqanu4l3d6aqdn4
-  '@types/eslint': 8.40.2
-  '@types/node': 18.16.19
-  '@types/prettier-linter-helpers': 1.0.1
-  bumpp: 9.1.1
-  eslint: 8.44.0
-  eslint-plugin-dprint-integration: 'link:'
-  pkgroll: 1.10.0_typescript@5.1.6
-  pnpm: 7.33.3
-  tsx: 3.12.7
-  typescript: 5.1.6
-  unbuild: 1.2.1
-  vite: 4.3.9_@types+node@18.16.19
-  vitest: 0.32.2
+  .:
+    specifiers:
+      '@antfu/ni': ^0.21.3
+      '@babel/types': ^7.21.4
+      '@dprint/dockerfile': ^0.3.0
+      '@dprint/formatter': ^0.2.0
+      '@dprint/json': ^0.17.1
+      '@dprint/markdown': ^0.16.0
+      '@dprint/toml': ^0.5.4
+      '@dprint/typescript': ^0.85.0
+      '@so1ve/eslint-config': ^0.102.0
+      '@types/eslint': ^8.37.0
+      '@types/node': ^18.15.11
+      '@types/prettier-linter-helpers': ^1.0.1
+      bumpp: ^9.1.0
+      defu: ^6.1.2
+      dprint: ^0.43.2
+      dprint-plugin-malva: ^0.1.4
+      dprint-plugin-markup: ^0.2.6
+      eslint: ^8.38.0
+      eslint-plugin-dprint-integration: workspace:*
+      find-up: ^5.0.0
+      pkgroll: ^1.9.0
+      pnpm: ^7.32.0
+      prettier-linter-helpers: ^1.0.0
+      tsx: ^3.12.6
+      typescript: ^5.0.4
+      unbuild: ^1.2.0
+      vite: ^4.2.1
+      vitest: ^0.32.0
+    dependencies:
+      '@dprint/dockerfile': 0.3.0
+      '@dprint/formatter': 0.2.0
+      '@dprint/json': 0.17.4
+      '@dprint/markdown': 0.16.0
+      '@dprint/toml': 0.5.4
+      '@dprint/typescript': 0.85.1
+      defu: 6.1.2
+      dprint-plugin-malva: 0.1.4
+      dprint-plugin-markup: 0.2.6
+      find-up: 5.0.0
+      prettier-linter-helpers: 1.0.0
+    devDependencies:
+      '@antfu/ni': 0.21.4
+      '@babel/types': 7.22.5
+      '@so1ve/eslint-config': 0.102.2_iqf7tbmerllfqanu4l3d6aqdn4
+      '@types/eslint': 8.40.2
+      '@types/node': 18.16.19
+      '@types/prettier-linter-helpers': 1.0.1
+      bumpp: 9.1.1
+      dprint: 0.43.2
+      eslint: 8.44.0
+      eslint-plugin-dprint-integration: 'link:'
+      pkgroll: 1.10.0_typescript@5.1.6
+      pnpm: 7.33.3
+      tsx: 3.12.7
+      typescript: 5.1.6
+      unbuild: 1.2.1
+      vite: 4.3.9_@types+node@18.16.19
+      vitest: 0.32.2
 
 packages:
 
@@ -284,6 +291,22 @@ packages:
       to-fast-properties: 2.0.0
     dev: true
 
+  /@dprint/darwin-arm64/0.43.2:
+    resolution: {integrity: sha512-EPBM3my8L2Wq+UPjfRepKLsZZe30mipvgT6HdpsT8FXqrvVaHcE5BxQdyu0TH/V7GogmeMXOaiAgH9f5IBkdTg==}
+    cpu: [arm64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@dprint/darwin-x64/0.43.2:
+    resolution: {integrity: sha512-zXabg6PF8g3d0Zc7KS3gj6/w38jO6GqIwHG0fvJh+E1UiSs36xLjLAsyZh7/6wrDu7LfD/g5WOUz1QAfrnO3zQ==}
+    cpu: [x64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /@dprint/dockerfile/0.3.0:
     resolution: {integrity: sha512-u2XhDkS0LrhmBrJ6ecP0TZsFv5a4W688XnD3F11/i9H0r/4/6QHLk6B2aKZmjK3rHaO1ERBYRA6YtKGxwkn2xg==}
     dev: false
@@ -296,6 +319,38 @@ packages:
     resolution: {integrity: sha512-9BmvkJRwICKr2hoC+WYtc3ewHi4PRRTmtk3RShpBFDEcYyMVB9+vXyxw/J/oMUlRfMY0jvOM5m+QlxgSo6g88Q==}
     dev: false
 
+  /@dprint/linux-arm64-glibc/0.43.2:
+    resolution: {integrity: sha512-XV6pXgyT8iKHf/VOB9JVZlU73mTX6vjJ+fLY0c+r9j7Zgjp6kb4JX6mTfeEwTZYBsZUzOmxKj+kno1mfw6dUHg==}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@dprint/linux-arm64-musl/0.43.2:
+    resolution: {integrity: sha512-aaWBIOMncDb0YrRmmNKCs7tf6H26VB0izX2bPIbMiOc50hPuCI28lz1lY+zdwdFKG+1aRkKHkLJtpOjgvmEqCw==}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@dprint/linux-x64-glibc/0.43.2:
+    resolution: {integrity: sha512-OBJlQCvPCQOgSZvQhTVJbF6mD9Bpz3hhecTZNnU/n83bHX1L3cwu/laws0mQPXOxJvBKpYVgN5ceZelIO0ZKWA==}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@dprint/linux-x64-musl/0.43.2:
+    resolution: {integrity: sha512-WVnivencONHhRVfgbKPf95P3ES8DYowBCk80tROg41BBRdP/WJoPWc5Ocm6mhEGEeIpcHol+xvwKkqZkkMxJcg==}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /@dprint/markdown/0.16.0:
     resolution: {integrity: sha512-fmI8hYL08rMYvpoHYn1IAcnLoaN3ITrAkeNtj+GjaysAOiyh7Av1zspDqD8mx8RWZcIwGL5/NpXvol8ysfqDPg==}
     dev: false
@@ -307,6 +362,14 @@ packages:
   /@dprint/typescript/0.85.1:
     resolution: {integrity: sha512-rPwwm/RrFIolz6xHa8Kzpshuwpe+xu/XcEw9iUmRF2tnyIwxxaW7XoFKaQ+GfPju81cKpH4vJeq7/2IizKvyjg==}
     dev: false
+
+  /@dprint/win32-x64/0.43.2:
+    resolution: {integrity: sha512-ZboeX4lGZ+MtFyWV/Z9wxV3Re2zb/t6u79V38aKgCWDuy1SzGdxZcCPjEEY17lxwGpzgD5T0VBVdiBQLIy08CQ==}
+    cpu: [x64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
 
   /@es-joy/jsdoccomment/0.39.4:
     resolution: {integrity: sha512-Jvw915fjqQct445+yron7Dufix9A+m9j1fCJYlCo1FWlRvTxa3pjJelxdSTdaLWcTwRU6vbL+NYjO4YuNIS5Qg==}
@@ -2017,6 +2080,28 @@ packages:
   /dotenv/16.3.1:
     resolution: {integrity: sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==}
     engines: {node: '>=12'}
+    dev: true
+
+  /dprint-plugin-malva/0.1.4:
+    resolution: {integrity: sha512-JlIIwMinQFLziMML6IYto7kv+hIuVtSJSoCUj7c4DwfVGHXJIccRypI4AxLxpEZVOleecWDCLGuNk+Fpdu1aGg==}
+    dev: false
+
+  /dprint-plugin-markup/0.2.6:
+    resolution: {integrity: sha512-/kFMWDdNzL+arSgCt6b2xbi89b+fODcWMrnX85xjLsCuozNZOaZCvJ1vcOMOaFFpFKULdWxCggX8jc9GVfF38Q==}
+    dev: false
+
+  /dprint/0.43.2:
+    resolution: {integrity: sha512-9p/dmiFSkTl3hEvCfNbc/jwVwZp4JE5Bgm0z148QEXU7v+FA2dv0xQooAagWEnCPAQgxYcQhecTxrLanOsyNoA==}
+    hasBin: true
+    requiresBuild: true
+    optionalDependencies:
+      '@dprint/darwin-arm64': 0.43.2
+      '@dprint/darwin-x64': 0.43.2
+      '@dprint/linux-arm64-glibc': 0.43.2
+      '@dprint/linux-arm64-musl': 0.43.2
+      '@dprint/linux-x64-glibc': 0.43.2
+      '@dprint/linux-x64-musl': 0.43.2
+      '@dprint/win32-x64': 0.43.2
     dev: true
 
   /electron-to-chromium/1.4.447:

@@ -10,6 +10,8 @@ import { getPath as getJsonPath } from "@dprint/json";
 import { getPath as getMarkdownPath } from "@dprint/markdown";
 import { getBuffer as getTomlBuffer } from "@dprint/toml";
 import { getPath as getTypescriptPath } from "@dprint/typescript";
+import { getPath as getMalvaPath } from "dprint-plugin-malva";
+import { getPath as getMarkupPath } from "dprint-plugin-markup";
 
 import type { PluginConfig } from "./types";
 import { detectLanguage, hasNewlineOnly } from "./utils";
@@ -35,6 +37,8 @@ export class Formatter {
   private readonly json: DprintFormatter;
   private readonly markdown: DprintFormatter;
   private readonly dockerfile: DprintFormatter;
+  private readonly malva: DprintFormatter;
+  private readonly markup: DprintFormatter;
   constructor(
     globalConfig: GlobalConfiguration = {},
     pluginConfig: PluginConfig = {},
@@ -59,6 +63,16 @@ export class Formatter {
       getDockerfileBuffer(),
       globalConfig,
       pluginConfig.dockerfile,
+    );
+    this.malva = createFormatter(
+      getMalvaPath(),
+      globalConfig,
+      pluginConfig.malva as Record<string, unknown>,
+    );
+    this.markup = createFormatter(
+      getMarkupPath(),
+      globalConfig,
+      pluginConfig.markup as Record<string, unknown>,
     );
   }
 
@@ -87,6 +101,12 @@ export class Formatter {
       case "dockerfile": {
         return this.dockerfile.formatText(filename, source);
       }
+      case "malva": {
+        return this.malva.formatText(filename, source);
+      }
+      case "markup": {
+        return this.markup.formatText(filename, source);
+      }
     }
   }
 
@@ -97,6 +117,8 @@ export class Formatter {
       ...this.json.getConfigDiagnostics(),
       ...this.markdown.getConfigDiagnostics(),
       ...this.dockerfile.getConfigDiagnostics(),
+      ...this.malva.getConfigDiagnostics(),
+      ...this.markup.getConfigDiagnostics(),
     ];
   }
 }

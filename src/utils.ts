@@ -4,6 +4,8 @@ import { extname } from "node:path";
 const TS_EXTS = [".ts", ".tsx", ".js", ".jsx", ".mjs", ".cjs", ".mts", ".cts"];
 const JSON_EXTS = [".json", ".jsonc", ".json5"];
 const MARKDOWN_EXTS = [".md", ".markdown", ".mdown", ".mkd"];
+const MALVA_EXTS = [".css", ".scss", ".sass", ".less"];
+const MARKUP_EXTS = [".html", ".vue", ".svelte", ".twig", ".jinja", ".jinja2"];
 
 export function detectLanguage(filename: string) {
   const ext = extname(filename);
@@ -21,6 +23,12 @@ export function detectLanguage(filename: string) {
   }
   if (filename === "Dockerfile") {
     return "dockerfile";
+  }
+  if (MALVA_EXTS.includes(ext)) {
+    return "malva";
+  }
+  if (MARKUP_EXTS.includes(ext)) {
+    return "markup";
   }
 }
 

@@ -74,6 +74,8 @@ module.exports = {
         toml: {},
         markdown: {},
         dockerfile: {},
+        malva: {},
+        markup: {},
       },
     ],
   },

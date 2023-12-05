@@ -115,6 +115,16 @@ export default {
                 properties: {},
                 additionalProperties: true,
               },
+              malva: {
+                type: "object",
+                properties: {},
+                additionalProperties: true,
+              },
+              markup: {
+                type: "object",
+                properties: {},
+                additionalProperties: true,
+              },
             },
             additionalProperties: true,
           },

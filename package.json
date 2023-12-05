@@ -62,6 +62,8 @@
     "@dprint/toml": "^0.5.4",
     "@dprint/typescript": "^0.85.0",
     "defu": "^6.1.2",
+    "dprint-plugin-malva": "^0.1.4",
+    "dprint-plugin-markup": "^0.2.6",
     "find-up": "^5.0.0",
     "prettier-linter-helpers": "^1.0.0"
   },
@@ -73,6 +75,7 @@
     "@types/node": "^18.15.11",
     "@types/prettier-linter-helpers": "^1.0.1",
     "bumpp": "^9.1.0",
+    "dprint": "^0.43.2",
     "eslint": "^8.38.0",
     "eslint-plugin-dprint-integration": "workspace:*",
     "pkgroll": "^1.9.0",
