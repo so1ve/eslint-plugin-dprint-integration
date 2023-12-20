@@ -59,7 +59,7 @@
 		"@dprint/json": "^0.17.1",
 		"@dprint/markdown": "^0.16.0",
 		"@dprint/toml": "^0.5.4",
-		"@dprint/typescript": "^0.85.0",
+		"@dprint/typescript": "^0.88.0",
 		"defu": "^6.1.2",
 		"find-up": "^5.0.0",
 		"prettier-linter-helpers": "^1.0.0"
