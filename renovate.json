@@ -1,4 +1,4 @@
 {
-  "extends": ["github>so1ve/renovate-config"],
-  "ignoreDeps": ["find-up"]
+	"extends": ["github>so1ve/renovate-config"],
+	"ignoreDeps": ["find-up"]
 }

@@ -8,67 +8,68 @@ const MALVA_EXTS = [".css", ".scss", ".sass", ".less"];
 const MARKUP_EXTS = [".html", ".vue", ".svelte", ".twig", ".jinja", ".jinja2"];
 
 export function detectLanguage(filename: string) {
-  const ext = extname(filename);
-  if (TS_EXTS.includes(ext)) {
-    return "typescript";
-  } else if (ext === ".toml") {
-    return "toml";
-  } else if (JSON_EXTS.includes(ext)) {
-    return "json";
-  } else if (MARKDOWN_EXTS.includes(ext)) {
-    return "markdown";
-  } else if (filename === "Dockerfile") {
-    return "dockerfile";
-  } else if (MALVA_EXTS.includes(ext)) {
-    return "malva";
-  } else if (MARKUP_EXTS.includes(ext)) {
-    return "markup";
-  }
+	const ext = extname(filename);
+	if (TS_EXTS.includes(ext)) {
+		return "typescript";
+	} else if (ext === ".toml") {
+		return "toml";
+	} else if (JSON_EXTS.includes(ext)) {
+		return "json";
+	} else if (MARKDOWN_EXTS.includes(ext)) {
+		return "markdown";
+	} else if (filename === "Dockerfile") {
+		return "dockerfile";
+	} else if (MALVA_EXTS.includes(ext)) {
+		return "malva";
+	} else if (MARKUP_EXTS.includes(ext)) {
+		return "markup";
+	}
 }
 
 export const hasNewlineOnly = (str: string) =>
-  ["\r", "\n", "\r\n"].includes(str);
+	["\r", "\n", "\r\n"].includes(str);
 
 export function pick<T extends Record<string, any>, K extends keyof T>(
-  obj: T,
-  pickKeys: K[] | readonly K[],
+	obj: T,
+	pickKeys: K[] | readonly K[],
 ) {
-  const result = {} as Pick<T, K>;
-  for (const key of pickKeys) {
-    if (obj[key] !== undefined) {
-      result[key] = obj[key];
-    }
-  }
+	const result = {} as Pick<T, K>;
+	for (const key of pickKeys) {
+		if (obj[key] !== undefined) {
+			result[key] = obj[key];
+		}
+	}
 
-  return result;
+	return result;
 }
 
-export function omit<T extends object, K extends keyof T>(
-  obj: T,
-  omitKeys: K[] | readonly K[],
+export function omit<T extends Record<PropertyKey, unknown>, K extends keyof T>(
+	obj: T,
+	omitKeys: K[] | readonly K[],
 ) {
-  const result = {} as Omit<T, K>;
-  const keys = Object.keys(obj).filter(
-    (item) => !omitKeys.includes(item as K),
-  ) as Exclude<keyof T, K>[];
-  for (const key of keys) {
-    if (obj[key] !== undefined) {
-      result[key] = obj[key];
-    }
-  }
+	const result = {} as Omit<T, K>;
+	const keys = Object.keys(obj).filter(
+		(item) => !omitKeys.includes(item as K),
+	) as Exclude<keyof T, K>[];
+	for (const key of keys) {
+		if (obj[key] !== undefined) {
+			result[key] = obj[key];
+		}
+	}
 
-  return result;
+	return result;
 }
 
 export const readJson = (filename: string) =>
-  JSON.parse(readFileSync(filename, "utf8"));
+	JSON.parse(readFileSync(filename, "utf8"));
 
 export function getSvelteScriptTagOffset(source: string) {
-  const startScriptTagRegex = /<script(\s[^>]*)?>/g;
-  const endScriptTagRegex = /<\/script>/g;
-  const offset = source.match(startScriptTagRegex)![0].length;
-  const end = source.search(endScriptTagRegex);
-  const scriptText = source.slice(offset, end);
+	// eslint-disable-next-line regexp/no-unused-capturing-group
+	const startScriptTagRegex = /<script(\s[^>]*)?>/g;
+	const endScriptTagRegex = /<\/script>/g;
+	const offset = source.match(startScriptTagRegex)![0].length;
+	const end = source.search(endScriptTagRegex);
+	const scriptText = source.slice(offset, end);
 
-  return { offset, scriptText };
+	return { offset, scriptText };
 }
