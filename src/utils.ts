@@ -11,23 +11,17 @@ export function detectLanguage(filename: string) {
   const ext = extname(filename);
   if (TS_EXTS.includes(ext)) {
     return "typescript";
-  }
-  if (ext === ".toml") {
+  } else if (ext === ".toml") {
     return "toml";
-  }
-  if (JSON_EXTS.includes(ext)) {
+  } else if (JSON_EXTS.includes(ext)) {
     return "json";
-  }
-  if (MARKDOWN_EXTS.includes(ext)) {
+  } else if (MARKDOWN_EXTS.includes(ext)) {
     return "markdown";
-  }
-  if (filename === "Dockerfile") {
+  } else if (filename === "Dockerfile") {
     return "dockerfile";
-  }
-  if (MALVA_EXTS.includes(ext)) {
+  } else if (MALVA_EXTS.includes(ext)) {
     return "malva";
-  }
-  if (MARKUP_EXTS.includes(ext)) {
+  } else if (MARKUP_EXTS.includes(ext)) {
     return "markup";
   }
 }
