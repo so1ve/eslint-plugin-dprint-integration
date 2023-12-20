@@ -22,14 +22,6 @@ const eslint = new ESLint({
 			"dprint-integration/dprint": [
 				"error",
 				{ useDprintJson: relative("__fixtures__/dprint.json") },
-				{
-					malva: {
-						lineBreak: "lf",
-					},
-					markup: {
-						lineBreak: "lf",
-					},
-				},
 			],
 		},
 	},

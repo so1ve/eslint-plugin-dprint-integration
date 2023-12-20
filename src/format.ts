@@ -18,7 +18,7 @@ import { detectLanguage, hasNewlineOnly } from "./utils";
 function createFormatter(
 	pathOrBuffer: string | ArrayBuffer,
 	globalConfig: GlobalConfiguration = {},
-	pluginConfig: Record<string, unknown> = {},
+	pluginConfig = {},
 ) {
 	const buffer =
 		typeof pathOrBuffer === "string"
@@ -69,7 +69,7 @@ export class Formatter {
 				"./plugin.wasm",
 			),
 			globalConfig,
-			pluginConfig.malva as Record<string, unknown>,
+			pluginConfig.malva,
 		);
 		this.markup = createFormatter(
 			path.join(
@@ -77,7 +77,7 @@ export class Formatter {
 				"./plugin.wasm",
 			),
 			globalConfig,
-			pluginConfig.markup as Record<string, unknown>,
+			pluginConfig.markup,
 		);
 	}
 
