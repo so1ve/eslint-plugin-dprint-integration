@@ -1,4 +1,5 @@
 import * as fs from "node:fs";
+import { join } from "node:path";
 
 import { getBuffer as getDockerfileBuffer } from "@dprint/dockerfile";
 import type {
@@ -10,8 +11,6 @@ import { getPath as getJsonPath } from "@dprint/json";
 import { getPath as getMarkdownPath } from "@dprint/markdown";
 import { getBuffer as getTomlBuffer } from "@dprint/toml";
 import { getPath as getTypescriptPath } from "@dprint/typescript";
-import { getPath as getMalvaPath } from "dprint-plugin-malva";
-import { getPath as getMarkupPath } from "dprint-plugin-markup";
 
 import type { PluginConfig } from "./types";
 import { detectLanguage, hasNewlineOnly } from "./utils";
@@ -65,12 +64,13 @@ export class Formatter {
 			pluginConfig.dockerfile,
 		);
 		this.malva = createFormatter(
-			getMalvaPath(),
+			join(require.resolve("dprint-plugin-malva"), "..", "./plugin.wasm"),
 			globalConfig,
 			pluginConfig.malva as Record<string, unknown>,
 		);
 		this.markup = createFormatter(
-			getMarkupPath(),
+			join(require.resolve("dprint-plugin-markup"), "..", "./plugin.wasm"),
+
 			globalConfig,
 			pluginConfig.markup as Record<string, unknown>,
 		);
