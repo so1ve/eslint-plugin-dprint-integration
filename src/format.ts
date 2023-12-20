@@ -1,5 +1,5 @@
-import * as fs from "node:fs";
-import { join } from "node:path";
+import fs from "node:fs";
+import path from "node:path";
 
 import { getBuffer as getDockerfileBuffer } from "@dprint/dockerfile";
 import type {
@@ -64,13 +64,18 @@ export class Formatter {
 			pluginConfig.dockerfile,
 		);
 		this.malva = createFormatter(
-			join(require.resolve("dprint-plugin-malva"), "..", "./plugin.wasm"),
+			path.join(
+				path.dirname(require.resolve("dprint-plugin-malva")),
+				"./plugin.wasm",
+			),
 			globalConfig,
 			pluginConfig.malva as Record<string, unknown>,
 		);
 		this.markup = createFormatter(
-			join(require.resolve("dprint-plugin-markup"), "..", "./plugin.wasm"),
-
+			path.join(
+				path.dirname(require.resolve("dprint-plugin-markup")),
+				"./plugin.wasm",
+			),
 			globalConfig,
 			pluginConfig.markup as Record<string, unknown>,
 		);
