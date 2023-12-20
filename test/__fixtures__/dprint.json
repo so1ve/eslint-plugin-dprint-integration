@@ -1,11 +1,6 @@
 {
+	"newLineKind": "lf",
 	"typescript": {
 		"quoteStyle": "preferSingle"
-	},
-	"malva": {
-		"lineBreak": "lf"
-	},
-	"markup": {
-		"lineBreak": "lf"
 	}
 }
