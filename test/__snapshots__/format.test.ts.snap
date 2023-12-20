@@ -1,0 +1,99 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`format > fixtures 1`] = `
+[
+  {
+    "column": 6,
+    "endColumn": 15,
+    "endLine": 1,
+    "fix": {
+      "range": [
+        0,
+        0,
+      ],
+      "text": "</div>
+",
+    },
+    "line": 1,
+    "message": "Replace \`···</div>\` with \`</div>⏎\`",
+    "messageId": "replace",
+    "nodeType": null,
+    "ruleId": "dprint-integration/dprint",
+    "severity": 2,
+  },
+  {
+    "column": 11,
+    "endColumn": 15,
+    "endLine": 1,
+    "fix": {
+      "range": [
+        0,
+        0,
+      ],
+      "text": "'1';
+",
+    },
+    "line": 1,
+    "message": "Replace \`"1";\` with \`'1';⏎\`",
+    "messageId": "replace",
+    "nodeType": null,
+    "ruleId": "dprint-integration/dprint",
+    "severity": 2,
+  },
+  {
+    "column": 10,
+    "endColumn": 11,
+    "endLine": 1,
+    "fix": {
+      "range": [
+        0,
+        0,
+      ],
+      "text": "",
+    },
+    "line": 1,
+    "message": "Delete \`·\`",
+    "messageId": "delete",
+    "nodeType": null,
+    "ruleId": "dprint-integration/dprint",
+    "severity": 2,
+  },
+  {
+    "column": 1,
+    "endColumn": 8,
+    "endLine": 2,
+    "fix": {
+      "range": [
+        0,
+        0,
+      ],
+      "text": "  <div",
+    },
+    "line": 2,
+    "message": "Replace \`↹<div··\` with \`··<div\`",
+    "messageId": "replace",
+    "nodeType": null,
+    "ruleId": "dprint-integration/dprint",
+    "severity": 2,
+  },
+  {
+    "column": 1,
+    "endColumn": 13,
+    "endLine": 3,
+    "fix": {
+      "range": [
+        0,
+        0,
+      ],
+      "text": "</template>;
+",
+    },
+    "line": 3,
+    "message": "Replace \`·</template>\` with \`</template>;⏎\`",
+    "messageId": "replace",
+    "nodeType": null,
+    "ruleId": "dprint-integration/dprint",
+    "severity": 2,
+  },
+]
+`;
