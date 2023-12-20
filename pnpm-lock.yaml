@@ -12,8 +12,8 @@ dependencies:
     specifier: ^0.2.0
     version: 0.2.0
   '@dprint/json':
-    specifier: ^0.17.1
-    version: 0.17.4
+    specifier: ^0.19.0
+    version: 0.19.1
   '@dprint/markdown':
     specifier: ^0.16.0
     version: 0.16.0
@@ -63,7 +63,7 @@ devDependencies:
     version: 8.44.0
   eslint-plugin-dprint-integration:
     specifier: ^0.3.0
-    version: 0.3.0
+    version: 'link:'
   pkgroll:
     specifier: ^1.9.0
     version: 1.10.0(typescript@5.1.6)
@@ -320,16 +320,15 @@ packages:
 
   /@dprint/dockerfile@0.3.0:
     resolution: {integrity: sha512-u2XhDkS0LrhmBrJ6ecP0TZsFv5a4W688XnD3F11/i9H0r/4/6QHLk6B2aKZmjK3rHaO1ERBYRA6YtKGxwkn2xg==}
+    dev: false
 
   /@dprint/formatter@0.2.0:
     resolution: {integrity: sha512-E1q1JaOPeEUBhG//IUayqJQvNpqprZ0OCF8B/bIhUqSsMIp0Y74PgF8JPvDCrOdq43qiGUYAavVO8iCBHOoU/A==}
+    dev: false
 
-  /@dprint/json@0.17.4:
-    resolution: {integrity: sha512-9BmvkJRwICKr2hoC+WYtc3ewHi4PRRTmtk3RShpBFDEcYyMVB9+vXyxw/J/oMUlRfMY0jvOM5m+QlxgSo6g88Q==}
-
-  /@dprint/markdown@0.15.3:
-    resolution: {integrity: sha512-QCpvOQZtvq8HNbUobh9lAW5V4PrEncpfKLltxgM/DjLymDHUQ5EOnHUHaBlKu0ze+xtApBFnJpZS2xhjoNpj9g==}
-    dev: true
+  /@dprint/json@0.19.1:
+    resolution: {integrity: sha512-E0bI+OhrtQ0gskbSvJsNavd1txORH7vb49AA5ZwjBE90y+668cOsaz0Si1LcBMU6HCJdybux8N1ksinhbYYIZg==}
+    dev: false
 
   /@dprint/markdown@0.16.0:
     resolution: {integrity: sha512-fmI8hYL08rMYvpoHYn1IAcnLoaN3ITrAkeNtj+GjaysAOiyh7Av1zspDqD8mx8RWZcIwGL5/NpXvol8ysfqDPg==}
@@ -337,10 +336,7 @@ packages:
 
   /@dprint/toml@0.5.4:
     resolution: {integrity: sha512-d+5GwwzztZD0QixmOBhaO6nWVLsAeYsJ1HJYNxDoDRbASFCpza9BBVshG5ctBRXCkkIHhD9BO1SnbOoRQltUQw==}
-
-  /@dprint/typescript@0.84.4:
-    resolution: {integrity: sha512-QIdXKI+bbtV7l+k3eBsPtbWFD4ELwY+Hbd9uH2sIOK6ZNzBquTO/EJNX77Pr25kdaj39lPr2Do1YDZM4iQVqXg==}
-    dev: true
+    dev: false
 
   /@dprint/typescript@0.85.1:
     resolution: {integrity: sha512-rPwwm/RrFIolz6xHa8Kzpshuwpe+xu/XcEw9iUmRF2tnyIwxxaW7XoFKaQ+GfPju81cKpH4vJeq7/2IizKvyjg==}
@@ -2541,20 +2537,6 @@ packages:
       - eslint
       - supports-color
       - typescript
-    dev: true
-
-  /eslint-plugin-dprint-integration@0.3.0:
-    resolution: {integrity: sha512-w92Av81MjERgR4h/03APU1T/XYvgp+8UV1KIoRwSqsKrbAlkiY9+iUKVX2hjN/5Sh2NnLrBFIt+NTpO6DieikA==}
-    dependencies:
-      '@dprint/dockerfile': 0.3.0
-      '@dprint/formatter': 0.2.0
-      '@dprint/json': 0.17.4
-      '@dprint/markdown': 0.15.3
-      '@dprint/toml': 0.5.4
-      '@dprint/typescript': 0.84.4
-      defu: 6.1.2
-      find-up: 5.0.0
-      prettier-linter-helpers: 1.0.0
     dev: true
 
   /eslint-plugin-es-x@7.5.0(eslint@8.44.0):
@@ -5062,6 +5044,7 @@ packages:
     engines: {node: '>=6.0.0'}
     dependencies:
       fast-diff: 1.3.0
+    dev: false
 
   /prettier-package-json@2.8.0:
     resolution: {integrity: sha512-WxtodH/wWavfw3MR7yK/GrS4pASEQ+iSTkdtSxPJWvqzG55ir5nvbLt9rw5AOiEcqqPCRM92WCtR1rk3TG3JSQ==}
