@@ -1,4 +1,4 @@
-import { basename, extname } from "node:path";
+import { basename } from "node:path";
 
 import { defu } from "defu";
 import type { ESLint, Rule } from "eslint";
@@ -12,7 +12,6 @@ import type { PluginConfig } from "./types";
 import { omit } from "./utils";
 
 const { INSERT, DELETE, REPLACE } = generateDifferences;
-const VIRTUAL_EXTS = new Set([".vue"]);
 
 function reportDifference(
 	context: Rule.RuleContext,
@@ -166,19 +165,12 @@ export default {
 					throw new Error(diagnostics.map((d) => d.message).join("\n"));
 				}
 				const sourceCode = context.sourceCode;
-				let filename = basename(context.filename);
-				const ext = extname(filename);
+				const filename = basename(context.filename);
 
 				return {
 					Program(node) {
 						const offset = node.range?.[0];
 						const source = sourceCode.getText(node);
-						if (VIRTUAL_EXTS.has(ext)) {
-							// Hack: Use .ts extension for scripts in vue files
-							// Does not work for some strange languages such as coffeescript
-							// Wait, you are using coffeescript?
-							filename = "file.ts";
-						}
 						const formatted = formatter.format(filename, source);
 						reportIf(context, source, formatted, offset);
 					},

@@ -85,11 +85,11 @@ exports[`format > fixtures 1`] = `
         27,
         39,
       ],
-      "text": "</template>;
+      "text": "</template>
 ",
     },
     "line": 3,
-    "message": "Replace \`·</template>\` with \`</template>;⏎\`",
+    "message": "Replace \`·</template>\` with \`</template>⏎\`",
     "messageId": "replace",
     "nodeType": null,
     "ruleId": "dprint-integration/dprint",
