@@ -66,9 +66,15 @@ importers:
       eslint:
         specifier: ^8.56.0
         version: 8.56.0
+      eslint-parser-plain:
+        specifier: ^0.1.0
+        version: 0.1.0
       eslint-plugin-dprint-integration:
         specifier: ^0.3.0
         version: 0.3.0
+      fast-glob:
+        specifier: ^3.3.2
+        version: 3.3.2
       pkgroll:
         specifier: ^2.0.1
         version: 2.0.1(typescript@5.3.3)
@@ -2874,6 +2880,10 @@ packages:
       eslint-import-resolver-typescript: 3.6.1(@typescript-eslint/parser@6.15.0)(eslint-plugin-import@2.29.1)(eslint@8.56.0)
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /eslint-parser-plain@0.1.0:
+    resolution: {integrity: sha512-oOeA6FWU0UJT/Rxc3XF5Cq0nbIZbylm7j8+plqq0CZoE6m4u32OXJrR+9iy4srGMmF6v6pmgvP1zPxSRIGh3sg==}
     dev: true
 
   /eslint-plugin-array-func@3.1.8(eslint@8.56.0):

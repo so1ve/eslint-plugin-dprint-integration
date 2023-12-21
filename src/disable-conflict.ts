@@ -109,4 +109,4 @@ export default {
 		"react/jsx-tag-spacing": "off",
 		"react/jsx-wrap-multilines": "off",
 	},
-};
+} as const;
