@@ -12,6 +12,8 @@ const DPRINT_PLUGINS_BUILTIN = [
 	"json",
 	"markdown",
 	"dockerfile",
+	"malva",
+	"markup",
 ] as const;
 
 interface DprintJson {

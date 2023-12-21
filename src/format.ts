@@ -1,4 +1,5 @@
-import * as fs from "node:fs";
+import fs from "node:fs";
+import path from "node:path";
 
 import { getBuffer as getDockerfileBuffer } from "@dprint/dockerfile";
 import type {
@@ -17,7 +18,7 @@ import { detectLanguage, hasNewlineOnly } from "./utils";
 function createFormatter(
 	pathOrBuffer: string | ArrayBuffer,
 	globalConfig: GlobalConfiguration = {},
-	pluginConfig: Record<string, unknown> = {},
+	pluginConfig = {},
 ) {
 	const buffer =
 		typeof pathOrBuffer === "string"
@@ -35,6 +36,8 @@ export class Formatter {
 	private readonly json: DprintFormatter;
 	private readonly markdown: DprintFormatter;
 	private readonly dockerfile: DprintFormatter;
+	private readonly malva: DprintFormatter;
+	private readonly markup: DprintFormatter;
 	constructor(
 		globalConfig: GlobalConfiguration = {},
 		pluginConfig: PluginConfig = {},
@@ -60,9 +63,25 @@ export class Formatter {
 			globalConfig,
 			pluginConfig.dockerfile,
 		);
+		this.malva = createFormatter(
+			path.join(
+				path.dirname(require.resolve("dprint-plugin-malva")),
+				"./plugin.wasm",
+			),
+			globalConfig,
+			pluginConfig.malva,
+		);
+		this.markup = createFormatter(
+			path.join(
+				path.dirname(require.resolve("dprint-plugin-markup")),
+				"./plugin.wasm",
+			),
+			globalConfig,
+			pluginConfig.markup,
+		);
 	}
 
-	public async format(filename: string, source: string) {
+	public format(filename: string, source: string) {
 		const language = detectLanguage(filename);
 		if (!language) {
 			return source;
@@ -87,6 +106,12 @@ export class Formatter {
 			case "dockerfile": {
 				return this.dockerfile.formatText(filename, source);
 			}
+			case "malva": {
+				return this.malva.formatText(filename, source);
+			}
+			case "markup": {
+				return this.markup.formatText(filename, source);
+			}
 		}
 	}
 
@@ -97,6 +122,8 @@ export class Formatter {
 			...this.json.getConfigDiagnostics(),
 			...this.markdown.getConfigDiagnostics(),
 			...this.dockerfile.getConfigDiagnostics(),
+			...this.malva.getConfigDiagnostics(),
+			...this.markup.getConfigDiagnostics(),
 		];
 	}
 }

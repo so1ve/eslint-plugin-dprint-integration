@@ -30,20 +30,13 @@ const eslint = new ESLint({
 });
 
 const runFixtures = (fixtures: string) =>
-	eslint.lintFiles(relative(fixtures)).then((result) =>
-		result
-			.flatMap((r) => r.messages)
-			.map((m) => {
-				// Hack: Fix CI
-				m.fix?.range && (m.fix.range = [0, 0]);
+	eslint
+		.lintFiles(relative(fixtures))
+		.then((result) => result.flatMap((r) => r.messages));
 
-				return m;
-			}),
-	);
-
-describe("dprint json config", () => {
-	it("should resolve config", async () => {
-		const result = await runFixtures("./__fixtures__/dprint-json/**");
+describe("format", () => {
+	it("fixtures", async () => {
+		const result = await runFixtures("./__fixtures__/format/**");
 
 		expect(result).toMatchSnapshot();
 	});

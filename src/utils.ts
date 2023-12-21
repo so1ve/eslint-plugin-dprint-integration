@@ -4,23 +4,25 @@ import { extname } from "node:path";
 const TS_EXTS = [".ts", ".tsx", ".js", ".jsx", ".mjs", ".cjs", ".mts", ".cts"];
 const JSON_EXTS = [".json", ".jsonc", ".json5"];
 const MARKDOWN_EXTS = [".md", ".markdown", ".mdown", ".mkd"];
+const MALVA_EXTS = [".css", ".scss", ".sass", ".less"];
+const MARKUP_EXTS = [".html", ".vue", ".svelte", ".twig", ".jinja", ".jinja2"];
 
 export function detectLanguage(filename: string) {
 	const ext = extname(filename);
 	if (TS_EXTS.includes(ext)) {
 		return "typescript";
-	}
-	if (ext === ".toml") {
+	} else if (ext === ".toml") {
 		return "toml";
-	}
-	if (JSON_EXTS.includes(ext)) {
+	} else if (JSON_EXTS.includes(ext)) {
 		return "json";
-	}
-	if (MARKDOWN_EXTS.includes(ext)) {
+	} else if (MARKDOWN_EXTS.includes(ext)) {
 		return "markdown";
-	}
-	if (filename === "Dockerfile") {
+	} else if (filename === "Dockerfile") {
 		return "dockerfile";
+	} else if (MALVA_EXTS.includes(ext)) {
+		return "malva";
+	} else if (MARKUP_EXTS.includes(ext)) {
+		return "markup";
 	}
 }
 
@@ -60,14 +62,3 @@ export function omit<T extends Record<PropertyKey, unknown>, K extends keyof T>(
 
 export const readJson = (filename: string) =>
 	JSON.parse(readFileSync(filename, "utf8"));
-
-export function getSvelteScriptTagOffset(source: string) {
-	// eslint-disable-next-line regexp/no-unused-capturing-group
-	const startScriptTagRegex = /<script(\s[^>]*)?>/g;
-	const endScriptTagRegex = /<\/script>/g;
-	const offset = source.match(startScriptTagRegex)![0].length;
-	const end = source.search(endScriptTagRegex);
-	const scriptText = source.slice(offset, end);
-
-	return { offset, scriptText };
-}

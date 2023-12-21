@@ -9,7 +9,7 @@ import disableConflict from "./disable-conflict";
 import { Formatter } from "./format";
 import { resolveDprintJson } from "./resolve-dprint-json";
 import type { PluginConfig } from "./types";
-import { getSvelteScriptTagOffset, omit } from "./utils";
+import { omit } from "./utils";
 
 const { INSERT, DELETE, REPLACE } = generateDifferences;
 const VIRTUAL_EXTS = new Set([".vue"]);
@@ -115,6 +115,16 @@ export default {
 								properties: {},
 								additionalProperties: true,
 							},
+							malva: {
+								type: "object",
+								properties: {},
+								additionalProperties: true,
+							},
+							markup: {
+								type: "object",
+								properties: {},
+								additionalProperties: true,
+							},
 						},
 						additionalProperties: true,
 					},
@@ -170,17 +180,6 @@ export default {
 							filename = "file.ts";
 						}
 						const formatted = formatter.format(filename, source);
-						reportIf(context, source, formatted, offset);
-					},
-					// For eslint-plugin-svelte
-					SvelteScriptElement(node: any) {
-						let offset = node.range?.[0];
-						const source = sourceCode.getText(node);
-						const { offset: scriptOffset, scriptText } =
-							getSvelteScriptTagOffset(source);
-						offset += scriptOffset;
-						filename = "file.ts";
-						const formatted = formatter.format(filename, scriptText);
 						reportIf(context, source, formatted, offset);
 					},
 				};
