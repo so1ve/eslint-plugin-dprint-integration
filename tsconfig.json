@@ -5,7 +5,7 @@
 		"module": "ESNext",
 		"moduleResolution": "Node",
 		"resolveJsonModule": true,
-		"types": ["vite/client"],
+		"types": ["@types/node", "vite/client"],
 		"strict": true,
 		"strictNullChecks": true,
 		"esModuleInterop": true,
