@@ -15,7 +15,7 @@ const linterConfig = {
 linter.defineParser("plain", parserPlain as any);
 linter.defineRule("dprint", DprintIntegration.rules.dprint);
 
-describe("format", async () => {
+describe("format", () => {
 	const fixtureFiles = import.meta.glob("./__fixtures__/format/**", {
 		eager: true,
 		as: "raw",
