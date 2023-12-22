@@ -1,16 +1,16 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`format > File: D:/Workspace/eslint-plugin-dprint-integration/test/__fixtures__/format/svelte.svelte 1`] = `
+exports[`format > File: ./__fixtures__/format/svelte.svelte 1`] = `
 "<div></div>
 "
 `;
 
-exports[`format > File: D:/Workspace/eslint-plugin-dprint-integration/test/__fixtures__/format/typescript.ts 1`] = `
+exports[`format > File: ./__fixtures__/format/typescript.ts 1`] = `
 "const a = "1";
 "
 `;
 
-exports[`format > File: D:/Workspace/eslint-plugin-dprint-integration/test/__fixtures__/format/vue.vue 1`] = `
+exports[`format > File: ./__fixtures__/format/vue.vue 1`] = `
 "<template>
   <div></div>
 </template>
