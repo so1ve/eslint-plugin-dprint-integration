@@ -4,90 +4,92 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-dependencies:
-  '@dprint/dockerfile':
-    specifier: ^0.3.0
-    version: 0.3.0
-  '@dprint/formatter':
-    specifier: ^0.2.0
-    version: 0.2.1
-  '@dprint/json':
-    specifier: ^0.19.1
-    version: 0.19.1
-  '@dprint/markdown':
-    specifier: ^0.16.3
-    version: 0.16.3
-  '@dprint/toml':
-    specifier: ^0.5.4
-    version: 0.5.4
-  '@dprint/typescript':
-    specifier: ^0.88.7
-    version: 0.88.10
-  defu:
-    specifier: ^6.1.3
-    version: 6.1.4
-  dprint-plugin-malva:
-    specifier: ^0.1.4
-    version: 0.1.4
-  dprint-plugin-markup:
-    specifier: ^0.2.6
-    version: 0.2.6
-  find-up:
-    specifier: ^5.0.0
-    version: 5.0.0
-  prettier-linter-helpers:
-    specifier: ^1.0.0
-    version: 1.0.0
+importers:
 
-devDependencies:
-  '@antfu/ni':
-    specifier: ^0.21.12
-    version: 0.21.12
-  '@so1ve/eslint-config':
-    specifier: ^1.0.2
-    version: 1.2.0(eslint-plugin-import@2.29.1)(eslint@8.56.0)(prettier@3.2.5)(typescript@5.3.3)(vitest@1.2.2)
-  '@so1ve/prettier-config':
-    specifier: ^1.0.2
-    version: 1.2.0(prettier@3.2.5)
-  '@types/eslint':
-    specifier: ^8.56.0
-    version: 8.56.2
-  '@types/node':
-    specifier: ^20.10.5
-    version: 20.11.16
-  '@types/prettier-linter-helpers':
-    specifier: ^1.0.4
-    version: 1.0.4
-  bumpp:
-    specifier: ^9.2.1
-    version: 9.3.0
-  eslint:
-    specifier: ^8.56.0
-    version: 8.56.0
-  eslint-parser-plain:
-    specifier: ^0.1.0
-    version: 0.1.0
-  eslint-plugin-dprint-integration:
-    specifier: ^0.3.0
-    version: 0.3.0
-  pkgroll:
-    specifier: ^2.0.1
-    version: 2.0.1(typescript@5.3.3)
-  prettier:
-    specifier: ^3.1.1
-    version: 3.2.5
-  typescript:
-    specifier: ^5.3.3
-    version: 5.3.3
-  unbuild:
-    specifier: ^2.0.0
-    version: 2.0.0(typescript@5.3.3)
-  vite:
-    specifier: ^5.0.10
-    version: 5.0.12(@types/node@20.11.16)
-  vitest:
-    specifier: ^1.1.0
-    version: 1.2.2(@types/node@20.11.16)
+  .:
+    dependencies:
+      '@dprint/dockerfile':
+        specifier: ^0.3.0
+        version: 0.3.0
+      '@dprint/formatter':
+        specifier: ^0.2.0
+        version: 0.2.1
+      '@dprint/json':
+        specifier: ^0.19.1
+        version: 0.19.1
+      '@dprint/markdown':
+        specifier: ^0.17.0
+        version: 0.17.0
+      '@dprint/toml':
+        specifier: ^0.5.4
+        version: 0.5.4
+      '@dprint/typescript':
+        specifier: ^0.88.7
+        version: 0.88.10
+      defu:
+        specifier: ^6.1.3
+        version: 6.1.4
+      dprint-plugin-malva:
+        specifier: ^0.1.4
+        version: 0.1.4
+      dprint-plugin-markup:
+        specifier: ^0.2.6
+        version: 0.2.6
+      find-up:
+        specifier: ^5.0.0
+        version: 5.0.0
+      prettier-linter-helpers:
+        specifier: ^1.0.0
+        version: 1.0.0
+    devDependencies:
+      '@antfu/ni':
+        specifier: ^0.21.12
+        version: 0.21.12
+      '@so1ve/eslint-config':
+        specifier: ^1.0.2
+        version: 1.2.0(eslint-plugin-import@2.29.1)(eslint@8.56.0)(prettier@3.2.5)(typescript@5.3.3)(vitest@1.2.2)
+      '@so1ve/prettier-config':
+        specifier: ^1.0.2
+        version: 1.2.0(prettier@3.2.5)
+      '@types/eslint':
+        specifier: ^8.56.0
+        version: 8.56.2
+      '@types/node':
+        specifier: ^20.10.5
+        version: 20.11.16
+      '@types/prettier-linter-helpers':
+        specifier: ^1.0.4
+        version: 1.0.4
+      bumpp:
+        specifier: ^9.2.1
+        version: 9.3.0
+      eslint:
+        specifier: ^8.56.0
+        version: 8.56.0
+      eslint-parser-plain:
+        specifier: ^0.1.0
+        version: 0.1.0
+      eslint-plugin-dprint-integration:
+        specifier: ^0.3.0
+        version: 0.3.0
+      pkgroll:
+        specifier: ^2.0.1
+        version: 2.0.1(typescript@5.3.3)
+      prettier:
+        specifier: ^3.1.1
+        version: 3.2.5
+      typescript:
+        specifier: ^5.3.3
+        version: 5.3.3
+      unbuild:
+        specifier: ^2.0.0
+        version: 2.0.0(typescript@5.3.3)
+      vite:
+        specifier: ^5.0.10
+        version: 5.0.12(@types/node@20.11.16)
+      vitest:
+        specifier: ^1.1.0
+        version: 1.2.2(@types/node@20.11.16)
 
 packages:
 
@@ -332,8 +334,8 @@ packages:
     resolution: {integrity: sha512-QCpvOQZtvq8HNbUobh9lAW5V4PrEncpfKLltxgM/DjLymDHUQ5EOnHUHaBlKu0ze+xtApBFnJpZS2xhjoNpj9g==}
     dev: true
 
-  /@dprint/markdown@0.16.3:
-    resolution: {integrity: sha512-KvwUrCdHR1spFk0EcdW33KEGFLfkcdx6hJN8mwipGBw0b40sl5oPtVUTgRiH70eV7VUhPfycDfIsDutWNHb17w==}
+  /@dprint/markdown@0.17.0:
+    resolution: {integrity: sha512-iM6/d4/qOOc7lxG3Tz3iNCbhbMC/ACTljEM+l0uRSD/SCrljJg0ZNQ4Z/gOdsaP17Bo8Vb3mKCXYLlPGtxKu1A==}
     dev: false
 
   /@dprint/toml@0.5.4:
