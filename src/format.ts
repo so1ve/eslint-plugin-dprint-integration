@@ -1,12 +1,12 @@
 import fs from "node:fs";
 import path from "node:path";
 
+import { getPath as getDockerfilePath } from "@dprint/dockerfile";
 import type {
 	Formatter as DprintFormatter,
 	GlobalConfiguration,
 } from "@dprint/formatter";
 import { createFromBuffer } from "@dprint/formatter";
-import { getPath as getDockerfilePath } from "@dprint/dockerfile";
 import { getPath as getJsonPath } from "@dprint/json";
 import { getPath as getMarkdownPath } from "@dprint/markdown";
 import { getPath as getTomlBuffer } from "@dprint/toml";
