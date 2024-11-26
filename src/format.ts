@@ -73,7 +73,7 @@ export class Formatter {
 		);
 		this.markup = createFormatter(
 			path.join(
-				path.dirname(require.resolve("dprint-plugin-markup")),
+				path.dirname(require.resolve("dprint-plugin-markup/package.json")),
 				"./plugin.wasm",
 			),
 			globalConfig,
