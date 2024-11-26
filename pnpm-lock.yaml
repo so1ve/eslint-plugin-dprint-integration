@@ -15,26 +15,26 @@ importers:
         specifier: ^0.4.1
         version: 0.4.1
       '@dprint/json':
-        specifier: ^0.19.3
-        version: 0.19.3
+        specifier: ^0.19.4
+        version: 0.19.4
       '@dprint/markdown':
         specifier: ^0.17.8
         version: 0.17.8
       '@dprint/toml':
-        specifier: ^0.6.2
-        version: 0.6.2
+        specifier: ^0.6.3
+        version: 0.6.3
       '@dprint/typescript':
-        specifier: ^0.93.0
-        version: 0.93.0
+        specifier: ^0.93.2
+        version: 0.93.2
       defu:
         specifier: ^6.1.3
         version: 6.1.4
       dprint-plugin-malva:
-        specifier: ^0.1.4
-        version: 0.1.4
+        specifier: ^0.11.0
+        version: 0.11.0
       dprint-plugin-markup:
-        specifier: ^0.2.6
-        version: 0.2.6
+        specifier: ^0.16.0
+        version: 0.16.0
       find-up:
         specifier: ^5.0.0
         version: 5.0.0
@@ -214,8 +214,8 @@ packages:
   '@dprint/json@0.17.4':
     resolution: {integrity: sha512-9BmvkJRwICKr2hoC+WYtc3ewHi4PRRTmtk3RShpBFDEcYyMVB9+vXyxw/J/oMUlRfMY0jvOM5m+QlxgSo6g88Q==}
 
-  '@dprint/json@0.19.3':
-    resolution: {integrity: sha512-8ErTmUo1rPaq9NDHrjbWXRbwJN8cLl8yImr5dBRA6274yFb0rNbB0knIJWgdI8/i+aZgoQFJxaSP6/MigqzLXg==}
+  '@dprint/json@0.19.4':
+    resolution: {integrity: sha512-65NHNet0KXpARa4iX9ZNMtzQQoQEUnHCHGOYfA6OICz8+V+7FNjieeltlCZf0gTLs3eBbgFuy8RsFX9+jYt1Uw==}
 
   '@dprint/markdown@0.15.3':
     resolution: {integrity: sha512-QCpvOQZtvq8HNbUobh9lAW5V4PrEncpfKLltxgM/DjLymDHUQ5EOnHUHaBlKu0ze+xtApBFnJpZS2xhjoNpj9g==}
@@ -226,14 +226,14 @@ packages:
   '@dprint/toml@0.5.4':
     resolution: {integrity: sha512-d+5GwwzztZD0QixmOBhaO6nWVLsAeYsJ1HJYNxDoDRbASFCpza9BBVshG5ctBRXCkkIHhD9BO1SnbOoRQltUQw==}
 
-  '@dprint/toml@0.6.2':
-    resolution: {integrity: sha512-Mk5unEANsL/L+WHYU3NpDXt1ARU5bNU5k5OZELxaJodDycKG6RoRnSlZXpW6+7UN2PSnETAFVUdKrh937ZwtHA==}
+  '@dprint/toml@0.6.3':
+    resolution: {integrity: sha512-zQ42I53sb4WVHA+5yoY1t59Zk++Ot02AvUgtNKLzTT8mPyVqVChFcePa3on/xIoKEgH+RoepgPHzqfk9837YFw==}
 
   '@dprint/typescript@0.84.4':
     resolution: {integrity: sha512-QIdXKI+bbtV7l+k3eBsPtbWFD4ELwY+Hbd9uH2sIOK6ZNzBquTO/EJNX77Pr25kdaj39lPr2Do1YDZM4iQVqXg==}
 
-  '@dprint/typescript@0.93.0':
-    resolution: {integrity: sha512-FxzxkheBbQnp7dHZJzkn4RwkP3keG/mvz0jyAGzEQ3P7Wl+ELSA8O2aZ6UJGmErOtP7lA8PbIbwMSu6VSBLSXw==}
+  '@dprint/typescript@0.93.2':
+    resolution: {integrity: sha512-3tkjp77CTNYkRWh7ucA7ZhV6QBBpgFDZLBLzUxQ5zo0VTodEhnT9yw5UXEXjayuXkAexBE4fQWZcnVLWN92lcg==}
 
   '@esbuild/aix-ppc64@0.19.12':
     resolution: {integrity: sha512-bmoCYyWdEL3wDQIVbcyzRyeKLgk2WtWLTWz1ZIAZF/EGbNOwSA6ew3PftJ1PqMiOOGu0OyFMzG53L0zqIpPeNA==}
@@ -707,26 +707,31 @@ packages:
     resolution: {integrity: sha512-Z3O60yxPtuCYobrtzjo0wlmvDdx2qZfeAWTyfOjEDqd08kthDKexLpV97KfAeUXPosENKd8uyJMRDfFMxcYkDQ==}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-arm64-musl@4.9.6':
     resolution: {integrity: sha512-gpiG0qQJNdYEVad+1iAsGAbgAnZ8j07FapmnIAQgODKcOTjLEWM9sRb+MbQyVsYCnA0Im6M6QIq6ax7liws6eQ==}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-linux-riscv64-gnu@4.9.6':
     resolution: {integrity: sha512-+uCOcvVmFUYvVDr27aiyun9WgZk0tXe7ThuzoUTAukZJOwS5MrGbmSlNOhx1j80GdpqbOty05XqSl5w4dQvcOA==}
     cpu: [riscv64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-x64-gnu@4.9.6':
     resolution: {integrity: sha512-HUNqM32dGzfBKuaDUBqFB7tP6VMN74eLZ33Q9Y1TBqRDn+qDonkAUyKWwF9BR9unV7QUzffLnz9GrnKvMqC/fw==}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-x64-musl@4.9.6':
     resolution: {integrity: sha512-ch7M+9Tr5R4FK40FHQk8VnML0Szi2KRujUgHXd/HjuH9ifH72GUmw6lStZBo3c3GB82vHa0ZoUfjfcM7JiiMrQ==}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-win32-arm64-msvc@4.9.6':
     resolution: {integrity: sha512-VD6qnR99dhmTQ1mJhIzXsRcTBvTjbfbGGwKAHcu+52cVl15AC/kplkhxzW/uT0Xl62Y/meBKDZvoJSJN+vTeGA==}
@@ -1409,11 +1414,11 @@ packages:
     resolution: {integrity: sha512-CjA3y+Dr3FyFDOAMnxZEGtnW9KBR2M0JvvUtXNW+dYJL5ROWxP9DUHCwgFqpMk0OXCc0ljhaNTr2w/kutYIcHQ==}
     engines: {node: '>=12'}
 
-  dprint-plugin-malva@0.1.4:
-    resolution: {integrity: sha512-JlIIwMinQFLziMML6IYto7kv+hIuVtSJSoCUj7c4DwfVGHXJIccRypI4AxLxpEZVOleecWDCLGuNk+Fpdu1aGg==}
+  dprint-plugin-malva@0.11.0:
+    resolution: {integrity: sha512-U1FNaTLiL9jaPajJwLfhFTrYDe9MVV7nI1pT/nIJev3NwZz2Y2DuxamvImhyQOaNZab4mQanqAc7mZ7e8m1+Ig==}
 
-  dprint-plugin-markup@0.2.6:
-    resolution: {integrity: sha512-/kFMWDdNzL+arSgCt6b2xbi89b+fODcWMrnX85xjLsCuozNZOaZCvJ1vcOMOaFFpFKULdWxCggX8jc9GVfF38Q==}
+  dprint-plugin-markup@0.16.0:
+    resolution: {integrity: sha512-IQYm93K5axInJNYsDhTcHgnnK6mAg11y8fwLrqP/92YrRMHzLlnkQKC7fuORLTOUggPkB4E2cNDCzi7pFq4QwQ==}
 
   eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
@@ -3782,7 +3787,7 @@ snapshots:
 
   '@dprint/json@0.17.4': {}
 
-  '@dprint/json@0.19.3': {}
+  '@dprint/json@0.19.4': {}
 
   '@dprint/markdown@0.15.3': {}
 
@@ -3790,11 +3795,11 @@ snapshots:
 
   '@dprint/toml@0.5.4': {}
 
-  '@dprint/toml@0.6.2': {}
+  '@dprint/toml@0.6.3': {}
 
   '@dprint/typescript@0.84.4': {}
 
-  '@dprint/typescript@0.93.0': {}
+  '@dprint/typescript@0.93.2': {}
 
   '@esbuild/aix-ppc64@0.19.12':
     optional: true
@@ -4985,9 +4990,9 @@ snapshots:
 
   dotenv@16.4.1: {}
 
-  dprint-plugin-malva@0.1.4: {}
+  dprint-plugin-malva@0.11.0: {}
 
-  dprint-plugin-markup@0.2.6: {}
+  dprint-plugin-markup@0.16.0: {}
 
   eastasianwidth@0.2.0: {}
 

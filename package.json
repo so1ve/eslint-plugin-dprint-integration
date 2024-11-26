@@ -55,13 +55,13 @@
 	"dependencies": {
 		"@dprint/dockerfile": "^0.3.2",
 		"@dprint/formatter": "^0.4.1",
-		"@dprint/json": "^0.19.3",
+		"@dprint/json": "^0.19.4",
 		"@dprint/markdown": "^0.17.8",
-		"@dprint/toml": "^0.6.2",
-		"@dprint/typescript": "^0.93.0",
+		"@dprint/toml": "^0.6.3",
+		"@dprint/typescript": "^0.93.2",
 		"defu": "^6.1.3",
-		"dprint-plugin-malva": "^0.1.4",
-		"dprint-plugin-markup": "^0.2.6",
+		"dprint-plugin-malva": "^0.11.0",
+		"dprint-plugin-markup": "^0.16.0",
 		"find-up": "^5.0.0",
 		"prettier-linter-helpers": "^1.0.0"
 	},
