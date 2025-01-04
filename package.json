@@ -66,7 +66,7 @@
 		"prettier-linter-helpers": "^1.0.0"
 	},
 	"devDependencies": {
-		"@antfu/ni": "^0.21.12",
+		"@antfu/ni": "^0.23.0",
 		"@so1ve/eslint-config": "^1.0.2",
 		"@so1ve/prettier-config": "^1.0.2",
 		"@types/eslint": "^8.56.0",
