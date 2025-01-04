@@ -61,7 +61,7 @@
 		"@dprint/typescript": "^0.93.2",
 		"defu": "^6.1.3",
 		"dprint-plugin-malva": "^0.11.0",
-		"dprint-plugin-markup": "^0.16.0",
+		"dprint-plugin-markup": "^0.18.0",
 		"find-up": "^5.0.0",
 		"prettier-linter-helpers": "^1.0.0"
 	},
