@@ -165,14 +165,14 @@ export default {
 					throw new Error(diagnostics.map((d) => d.message).join("\n"));
 				}
 				const sourceCode = context.sourceCode;
-				const filename = basename(context.filename);
+				const filePath = basename(context.filename);
 
 				return {
 					Program(node) {
 						const offset = node.range?.[0];
-						const source = sourceCode.getText(node);
-						const formatted = formatter.format(filename, source);
-						reportIf(context, source, formatted, offset);
+						const fileText = sourceCode.getText(node);
+						const formatted = formatter.format(filePath, fileText);
+						reportIf(context, fileText, formatted, offset);
 					},
 				};
 			},

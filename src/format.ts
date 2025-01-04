@@ -9,7 +9,7 @@ import type {
 import { createFromBuffer } from "@dprint/formatter";
 import { getPath as getJsonPath } from "@dprint/json";
 import { getPath as getMarkdownPath } from "@dprint/markdown";
-import { getBuffer as getTomlBuffer } from "@dprint/toml";
+import { getPath as getTomlBuffer } from "@dprint/toml";
 import { getPath as getTypescriptPath } from "@dprint/typescript";
 
 import type { PluginConfig } from "./types";
@@ -73,7 +73,7 @@ export class Formatter {
 		);
 		this.markup = createFormatter(
 			path.join(
-				path.dirname(require.resolve("dprint-plugin-markup")),
+				path.dirname(require.resolve("dprint-plugin-markup/package.json")),
 				"./plugin.wasm",
 			),
 			globalConfig,
@@ -81,36 +81,57 @@ export class Formatter {
 		);
 	}
 
-	public format(filename: string, source: string) {
-		const language = detectLanguage(filename);
+	public format(filePath: string, fileText: string) {
+		const language = detectLanguage(filePath);
 		if (!language) {
-			return source;
+			return fileText;
 		}
 		// Special Handle: If the source is only a newline, don't format it, or it will break the file.
-		if (language === "typescript" && hasNewlineOnly(source)) {
-			return source;
+		if (language === "typescript" && hasNewlineOnly(fileText)) {
+			return fileText;
 		}
 		switch (language) {
 			case "typescript": {
-				return this.typescript.formatText(filename, source);
+				return this.typescript.formatText({
+					filePath,
+					fileText,
+				});
 			}
 			case "toml": {
-				return this.toml.formatText(filename, source);
+				return this.toml.formatText({
+					filePath,
+					fileText,
+				});
 			}
 			case "json": {
-				return this.json.formatText(filename, source);
+				return this.json.formatText({
+					filePath,
+					fileText,
+				});
 			}
 			case "markdown": {
-				return this.markdown.formatText(filename, source);
+				return this.markdown.formatText({
+					filePath,
+					fileText,
+				});
 			}
 			case "dockerfile": {
-				return this.dockerfile.formatText(filename, source);
+				return this.dockerfile.formatText({
+					filePath,
+					fileText,
+				});
 			}
 			case "malva": {
-				return this.malva.formatText(filename, source);
+				return this.malva.formatText({
+					filePath,
+					fileText,
+				});
 			}
 			case "markup": {
-				return this.markup.formatText(filename, source);
+				return this.markup.formatText({
+					filePath,
+					fileText,
+				});
 			}
 		}
 	}

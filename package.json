@@ -1,7 +1,7 @@
 {
 	"name": "eslint-plugin-dprint-integration",
 	"version": "0.4.0",
-	"packageManager": "pnpm@8.15.4",
+	"packageManager": "pnpm@9.14.2",
 	"author": "Ray <i@mk1.io> (@so1ve)",
 	"description": "Integrate dprint into eslint.",
 	"keywords": [
@@ -53,15 +53,15 @@
 		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
-		"@dprint/dockerfile": "^0.3.0",
-		"@dprint/formatter": "^0.2.0",
-		"@dprint/json": "^0.19.1",
-		"@dprint/markdown": "^0.16.3",
-		"@dprint/toml": "^0.5.4",
-		"@dprint/typescript": "^0.88.7",
+		"@dprint/dockerfile": "^0.3.2",
+		"@dprint/formatter": "^0.4.1",
+		"@dprint/json": "^0.19.4",
+		"@dprint/markdown": "^0.17.8",
+		"@dprint/toml": "^0.6.3",
+		"@dprint/typescript": "^0.93.2",
 		"defu": "^6.1.3",
-		"dprint-plugin-malva": "^0.1.4",
-		"dprint-plugin-markup": "^0.2.6",
+		"dprint-plugin-malva": "^0.11.0",
+		"dprint-plugin-markup": "^0.16.0",
 		"find-up": "^5.0.0",
 		"prettier-linter-helpers": "^1.0.0"
 	},
