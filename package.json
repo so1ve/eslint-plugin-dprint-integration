@@ -55,7 +55,7 @@
 	"dependencies": {
 		"@dprint/dockerfile": "^0.3.2",
 		"@dprint/formatter": "^0.4.1",
-		"@dprint/json": "^0.19.4",
+		"@dprint/json": "^0.20.0",
 		"@dprint/markdown": "^0.17.8",
 		"@dprint/toml": "^0.6.3",
 		"@dprint/typescript": "^0.93.2",
