@@ -4,7 +4,7 @@
 
 > [!WARNING]
 >
-> DEPRECATED
+> **DEPRECATED**
 >
 > Use [antfu/eslint-plugin-format](https://github.com/antfu/eslint-plugin-format) instead.
 
