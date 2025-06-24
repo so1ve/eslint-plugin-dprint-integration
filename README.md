@@ -2,6 +2,12 @@
 
 [![NPM version](https://img.shields.io/npm/v/eslint-plugin-dprint-integration?color=a1b858&label=)](https://www.npmjs.com/package/eslint-plugin-dprint-integration)
 
+> [!WARNING]
+>
+> DEPRECATED
+>
+> Use [antfu/eslint-plugin-format](https://github.com/antfu/eslint-plugin-format) instead.
+
 Make dprint work with eslint. Works perfectly with virtual files (like codeblocks in markdown).
 
 ## 📦 Installation
